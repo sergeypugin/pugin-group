@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. ПЕРЕКЛЮЧАТЕЛЬ ТЕМ UIVERSE (ПО МАКЕТУ СКРИНШОТОВ)
   const themeInput = document.getElementById('theme-toggle-input');
 
+  // При загрузке проверяем тему
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeInput.checked = (savedTheme === 'dark');
 
+  // При клике на лампу
   themeInput.addEventListener('change', () => {
     const newTheme = themeInput.checked ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', newTheme);

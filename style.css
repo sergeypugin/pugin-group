@@ -75,7 +75,6 @@ a { text-decoration: none; color: inherit; }
 /* --- 2. HERO БЛОК С ФОНОМ ИНДИГО (#6366F1) И ЛАЙМОМ (#DDF365) --- */
 .hero-indigo {
   background-color: var(--accent-indigo);
-  /* Накладываем полупрозрачный фиолетово-индиго слой поверх оригинального шума ИТМО */
   background-image: url('https://abit.itmo.ru/images/noise_bg.webp');
   background-repeat: repeat;
   color: #FFFFFF;
@@ -134,31 +133,33 @@ a { text-decoration: none; color: inherit; }
 .button-cta {
   line-height: 1; text-decoration: none; display: inline-flex; border: none; cursor: pointer;
   align-items: center; gap: 0.75rem;
-  background-color: var(--accent-lime);
-  color: #0F172A;
+  background-color: var(--accent-indigo); /* В покое — цвет Индиго */
+  color: #FFFFFF;
   border-radius: 10rem; font-weight: 700; padding: 0.75rem 1.5rem; padding-left: 20px;
   white-space: nowrap; overflow: hidden; transition: all 0.3s; font-size: 14px;
+  box-shadow: none !important; /* Убираем любые подсветки под кнопками */
 }
 
-[data-theme="dark"] .button-cta {
-  background-color: #FFFFFF; /* В тёмной теме кнопка становится белоснежной для сверх-контраста */
-  color: #0F172A;
+/* Кружочек иконки внутри кнопки в покое совпадает с фоном шапки */
+.button-cta .button__icon-wrapper {
+  flex-shrink: 0; width: 25px; height: 25px; position: relative;
+  color: #FFFFFF;
+  background-color: var(--bg-header-fixed); /* Совпадает с фоном шапки */
+  border-radius: 50%; display: grid; place-items: center; overflow: hidden; transition: all 0.3s;
 }
 
+/* При наведении: текст и круг становятся цвета темы (черный в светлой, белый в тёмной) */
 .button-cta:hover {
-  background-color: var(--accent-lime) !important;
-  color: #0F172A !important;
-  box-shadow: 0 0 15px rgba(221, 243, 101, 0.4);
+  background-color: var(--text-main) !important;
+  color: var(--bg-page) !important;
+  box-shadow: none !important;
 }
 
-.button__icon-wrapper {
-  flex-shrink: 0; width: 25px; height: 25px; position: relative; color: #0F172A;
-  background-color: #FFFFFF; border-radius: 50%; display: grid; place-items: center; overflow: hidden;
+.button-cta:hover .button__icon-wrapper {
+  background-color: var(--text-main) !important;
+  color: var(--bg-page) !important;
 }
 
-/* При наведении кнопка становится белой с индиго-иконкой и НЕ сливается с фоном! */
-.button-cta:hover { background-color: #FFFFFF; color: #0F172A; }
-.button-cta:hover .button__icon-wrapper { background-color: var(--accent-indigo); color: #FFFFFF; }
 .button__icon-svg--copy { position: absolute; transform: translate(-150%, 150%); }
 .button-cta:hover .button__icon-svg:first-child { transition: transform 0.3s ease-in-out; transform: translate(150%, -150%); }
 .button-cta:hover .button__icon-svg--copy { transition: transform 0.3s ease-in-out 0.1s; transform: translate(0); }
@@ -172,11 +173,11 @@ a { text-decoration: none; color: inherit; }
 
 .coffee-card-wrapper { position: relative; }
 .coffee-card {
-  width: 100%; height: 100%; min-height: 320px; padding: 32px;
+  width: 100%; height: 100%; min-height: 320px; padding: 28px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-radius: 0.7rem; /* 11px сккругления */
+  border-radius: 0.7rem; /* 11px сккругления из шаблона Coffee Card */
   transition: all ease 0.3s;
   display: flex; flex-direction: column; justify-content: space-between;
 }
@@ -287,7 +288,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .alumni-faq__item.active .alumni-faq__symbol {
-  transform: rotate(45deg); /* Поворачиваем плюс на 45 градусов — получается крестик ✕ */
+  transform: rotate(-45deg); /* Поворачиваем плюс на 45 градусов — получается крестик ✕ */
 }
 
 .alumni-faq__body {
@@ -357,3 +358,65 @@ a { text-decoration: none; color: inherit; }
 .back-to-top-btn:hover .svgIcon { transform: translateY(-200%); }
 .back-to-top-btn::before { position: absolute; bottom: -20px; content: "Наверх ↑"; color: white; font-size: 0px; transition: 0.3s; }
 .back-to-top-btn:hover::before { font-size: 13px; opacity: 1; bottom: unset; }
+
+/* --- СТИЛИ ЛАМПОЧКИ С UIVERSE (warm-panther-53) --- */
+.l {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.75em;
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3) inset;
+  color: #fdea7b;
+  padding: 0.15em;
+  width: 3em;
+  height: 1.5em;
+  transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.l:before, .l:after { content: ""; display: block; }
+
+.l:before {
+  background-color: #d7d7d7;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.l:after {
+  background:
+    linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% / 50% 100%,
+    repeating-linear-gradient(90deg, #bbb 0, #bbb, #bbb 20%, #999 20%, #999 40%) 0 50% / 50% 100%,
+    radial-gradient(circle at 50% 50%, #888 25%, transparent 26%);
+  background-repeat: no-repeat;
+  border: 0.25em solid transparent;
+  border-left: 0.4em solid #d8d8d8;
+  border-right: 0 solid transparent;
+  transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  transform: translateX(-22.5%);
+  transform-origin: 25% 50%;
+  width: 1.2em;
+  height: 1em;
+  box-sizing: border-box;
+}
+
+.l:checked {
+  background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1) inset;
+}
+
+.l:checked:before {
+  background-color: currentColor;
+  transform: translateX(125%);
+}
+
+.l:checked:after {
+  border-left-color: currentColor;
+  transform: translateX(-2.5%) rotateY(180deg);
+}
