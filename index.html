@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<!-- 1. ЗАКРЕПЛЕННАЯ СВЕТЛАЯ/ТЕМНАЯ ШТОРКА (FIXED HEADER) -->
+<!-- ЗАКРЕПЛЕННАЯ ШТОРКА (FIXED HEADER) -->
 <header class="header-fixed">
     <div class="container header__container">
         <a href="#" class="logo">
@@ -26,12 +26,20 @@
         </nav>
 
         <div class="header-actions">
-            <!-- 3. ТЕМАТИЧЕСКИЙ ПЕРЕКЛЮЧАТЕЛЬ UIVERSE 1 в 1 (скрины #1 и #2) -->
-            <label for="theme-toggle-input" style="margin: 0; display: inline-flex; align-items: center;">
-                <input class="l" type="checkbox" id="theme-toggle-input" />
+            <!-- ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (JustCode14/red-dingo-61) -->
+            <label class="switch" title="Переключить тему">
+                <input id="theme-toggle-input" type="checkbox" />
+                <span class="slider">
+            <div class="star star_1"></div>
+            <div class="star star_2"></div>
+            <div class="star star_3"></div>
+            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+              <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path>
+            </svg>
+          </span>
             </label>
 
-            <!-- 4. КНОПКА "СВЯЗАТЬСЯ" (silly-cat-86) С ИСПРАВЛЕННЫМ ХОВЕРОМ -->
+            <!-- КНОПКА "СВЯЗАТЬСЯ" (silly-cat-86) -->
             <a href="#contacts" class="button-cta">
           <span class="button__icon-wrapper">
             <svg viewBox="0 0 14 15" fill="none" class="button__icon-svg" width="10">
@@ -47,7 +55,7 @@
     </div>
 </header>
 
-<!-- 2. HERO-БЛОК С КОНТРАСТНЫМ ИНДИГО ФОНОМ (#6366F1) И ЛАЙМОМ (#DDF365) -->
+<!-- HERO-БЛОК -->
 <section class="hero-indigo">
     <div class="container hero__container">
         <span class="hero__badge">44-ФЗ / 223-ФЗ / B2B Интеграции</span>
@@ -59,7 +67,7 @@
 <!-- ОСНОВНОЙ КОРПУС -->
 <main class="main-body">
 
-    <!-- 5. СЕКЦИЯ НАПРАВЛЕНИЙ: COFFEE CARDS (honest-bullfrog-6) + LEARN MORE (massive-mayfly-74) -->
+    <!-- СЕКЦИЯ НАПРАВЛЕНИЙ (COFFEE CARDS) -->
     <section class="section-padding" id="directions">
         <div class="container">
             <h2 class="section-title">Направления работы</h2>
@@ -79,7 +87,6 @@
                             </ul>
                         </div>
 
-                        <!-- КНОПКА LEARN MORE (massive-mayfly-74) -->
                         <a href="education.html" class="learn-more-btn">
                 <span class="circle" aria-hidden="true">
                   <span class="icon arrow"></span>
@@ -102,7 +109,6 @@
                             </ul>
                         </div>
 
-                        <!-- КНОПКА LEARN MORE (massive-mayfly-74) -->
                         <a href="logistics.html" class="learn-more-btn">
                 <span class="circle" aria-hidden="true">
                   <span class="icon arrow"></span>
@@ -125,7 +131,6 @@
                             </ul>
                         </div>
 
-                        <!-- КНОПКА LEARN MORE (massive-mayfly-74) -->
                         <a href="dev.html" class="learn-more-btn">
                 <span class="circle" aria-hidden="true">
                   <span class="icon arrow"></span>
@@ -139,45 +144,45 @@
         </div>
     </section>
 
-    <!-- 7. FAQ (1 в 1 ALUMNI.ITMO — ТИНКИЕ МИНИМАЛИСТИЧНЫЕ ПЛЮСЫ/КРЕСТИКИ БЕЗ КРУЖКОВ) -->
+    <!-- FAQ СЕКЦИЯ -->
     <section class="section-padding faq-section" id="faq">
         <div class="container container--narrow">
             <h2 class="section-title">Часто задаваемые вопросы</h2>
 
-            <div class="alumni-faq">
+            <div class="faq">
 
-                <div class="alumni-faq__item">
-                    <button class="alumni-faq__header">
+                <div class="faq__item">
+                    <button class="faq__header">
                         <span>Как оформить закупку учебной литературы или ПО по 44-ФЗ / 223-ФЗ?</span>
-                        <div class="alumni-faq__icon-wrapper">
-                            <span class="alumni-faq__symbol"></span>
+                        <div class="faq__icon-wrapper">
+                            <span class="faq__symbol"></span>
                         </div>
                     </button>
-                    <div class="alumni-faq__body">
-                        Мы подготавливаем 3 независимых КП для обоснования НМЦК, формируем техническое задание и сопровождаем сделку до подписания актов в ЕИС.
+                    <div class="faq__body">
+                        Мы подготавливаем 3 независимых КП для обоснования НМЦК, формируем техническое задание и полностью сопровождаем сделку от заявки до подписания актов в ЕИС.
                     </div>
                 </div>
 
-                <div class="alumni-faq__item">
-                    <button class="alumni-faq__header">
+                <div class="faq__item">
+                    <button class="faq__header">
                         <span>Поставляется ли софт Клеверенс с готовой настройкой под 1С?</span>
-                        <div class="alumni-faq__icon-wrapper">
-                            <span class="alumni-faq__symbol"></span>
+                        <div class="faq__icon-wrapper">
+                            <span class="faq__symbol"></span>
                         </div>
                     </button>
-                    <div class="alumni-faq__body">
+                    <div class="faq__body">
                         Да, мы поставляем как коробочные версии программных продуктов «Клеверенс» (Склад 15, Магазин 15), так и оказываем услуги по индивидуальной настройке и интеграции с вашей базой 1С / ERP.
                     </div>
                 </div>
 
-                <div class="alumni-faq__item">
-                    <button class="alumni-faq__header">
+                <div class="faq__item">
+                    <button class="faq__header">
                         <span>Каковы сроки разработки индивидуального программного обеспечения?</span>
-                        <div class="alumni-faq__icon-wrapper">
-                            <span class="alumni-faq__symbol"></span>
+                        <div class="faq__icon-wrapper">
+                            <span class="faq__symbol"></span>
                         </div>
                     </button>
-                    <div class="alumni-faq__body">
+                    <div class="faq__body">
                         Сроки зависят от объёма ТЗ. Первичную оценку проекта, архитектурный план и смету мы предоставляем в течение 2–3 рабочих дней после заполнения брифа.
                     </div>
                 </div>
@@ -218,7 +223,6 @@
                 </ul>
             </div>
 
-            <!-- 6. УВЕЛИЧЕННЫЕ СОЦИАЛЬНЫЕ КНОПКИ (horrible-eel-23) -->
             <div>
                 <h4 class="footer-heading">Мессенджеры и Соцсети</h4>
                 <div class="social-card">
@@ -244,7 +248,7 @@
     </div>
 </footer>
 
-<!-- КНОПКА "BACK TO TOP" (afraid-falcon-17) -->
+<!-- КНОПКА ВОЗВРАТА НАВЕРХ -->
 <button id="back-to-top" class="back-to-top-btn" title="Back to Top">
     <svg class="svgIcon" viewBox="0 0 384 512">
         <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>

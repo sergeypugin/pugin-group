@@ -1,60 +1,91 @@
-/* --- ДИЗАЙН-СИСТЕМА С КАРДИНАЛЬНЫМИ ИСПРАВЛЕНИЯМИ --- */
+/* ==========================================================================
+   1. ГЛОБАЛЬНАЯ ЦВЕТОВАЯ ПАЛИТРА (Централизованный пульт управления)
+   ========================================================================== */
+:root {
+  /* Основные акцентные цвета */
+  --color-indigo: #6366F1;
+  --color-lime: #DDF365;
+  --color-orange: #FF6B00;
+  --color-green: #10B981;
+
+  /* Тоны для Светлой темы */
+  --color-light-bg: #F4F5F7;
+  --color-light-card: #FFFFFF;
+  --color-light-text: #0F172A;
+  --color-light-muted: #475569;
+  --color-light-border: #E2E8F0;
+
+  /* Тоны для Тёмной темы */
+  --color-dark-bg: #111827;
+  --color-dark-card: #1F2937;
+  --color-dark-text: #F9FAFB;
+  --color-dark-muted: #9CA3AF;
+  --color-dark-border: #374151;
+
+  /* Текстуры */
+  --noise-light: url('assets/images/noise_bg_2.webp');
+  --noise-dark: url('assets/images/noise_bg_2.webp');
+}
+
+/* ==========================================================================
+   2. СЕМАНТИЧЕСКИЕ ТЕМЫ (Адаптивные переменные)
+   ========================================================================== */
 :root, [data-theme="light"] {
-  --bg-page: #F4F5F7;           /* Молочный фон ИТМО */
-  --bg-page-noise: url('https://abit.itmo.ru/images/noise_bg_light.webp');
-  --bg-card: #FFFFFF;
-  --bg-header-fixed: rgba(255, 255, 255, 0.95);
-  --bg-footer: #202020;         /* Графитовый темный подвал */
-  --text-main: #111111;
-  --text-muted: #555555;
-  --border-color: #E2E8F0;
-
-  --accent-indigo: #6366F1;     /* Контрастный индиго */
-  --accent-lime: #DDF365;       /* Сочный лайм */
-  --accent-orange: #FF6B00;
-
+  --bg-page: var(--color-light-bg);
+  --bg-noise: var(--noise-light);
+  --bg-card: var(--color-light-card);
+  --text-main: var(--color-light-text);
+  --text-muted: var(--color-light-muted);
+  --border-color: var(--color-light-border);
+  --accent-primary: var(--color-indigo);
+  --accent-secondary: var(--color-lime);
   --social-bg: #E2E8F0;
   --social-icon: #0F172A;
 }
 
 [data-theme="dark"] {
-  --bg-page: #202020;           /* Глубокий темный фон */
-  --bg-page-noise: url('https://abit.itmo.ru/images/noise_bg_2.webp');
-  --bg-card: #1A1A1A;
-  --bg-header-fixed: rgba(15, 23, 42, 0.95);
-  --bg-footer: #020617;
-  --text-main: #F8FAFC;
-  --text-muted: #94A3B8;
-  --border-color: #334155;
-
+  --bg-page: var(--color-dark-bg);
+  --bg-noise: var(--noise-dark);
+  --bg-card: var(--color-dark-card);
+  --text-main: var(--color-dark-text);
+  --text-muted: var(--color-dark-muted);
+  --border-color: var(--color-dark-border);
+  --accent-primary: var(--color-indigo);
+  --accent-secondary: var(--color-lime);
   --social-bg: #1E293B;
   --social-icon: #FFFFFF;
 }
 
+/* ==========================================================================
+   3. БАЗОВЫЕ СТИЛИ СТРАНИЦЫ
+   ========================================================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Golos Text', sans-serif; }
 html {
   scroll-behavior: smooth;
-  /* Цвет верхней области совпадает с фоном Hero-блока, чтобы при отмотке не вылезала полоса */
-  background-color: var(--accent-indigo);
-  overscroll-behavior-y: none; /* Запрещает разрыв верхней границы на MacOS и смартфонах */
+  background-color: var(--accent-primary);
+  overscroll-behavior-y: none;
 }
 body, .main-body {
   background-color: var(--bg-page);
-  background-image: var(--bg-page-noise);
+  background-image: var(--bg-noise);
   background-repeat: repeat;
   color: var(--text-main);
   line-height: 1.6;
-  padding-top: 72px; /* Компенсация высоты фиксированной шторки */
+  padding-top: 72px;
 }
 a { text-decoration: none; color: inherit; }
 
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .container--narrow { max-width: 850px; }
 
-/* --- 1. ФИКСИРОВАННАЯ СВЕТЛАЯ/ТЕМНАЯ ШТОРКА (FIXED HEADER) --- */
+/* ==========================================================================
+   4. ЗАКРЕПЛЕННАЯ ШТОРКА (FIXED HEADER)
+   ========================================================================== */
 .header-fixed {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: var(--bg-header-fixed);
+  background-color: var(--bg-page);
+  background-image: var(--bg-noise);
+  background-repeat: repeat;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -63,108 +94,89 @@ a { text-decoration: none; color: inherit; }
 }
 .header__container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
-/* БРЕНД-ЗОНА */
 .logo { font-size: 20px; font-weight: 800; display: flex; gap: 6px; align-items: center; }
 .brand-ip { color: var(--text-main); }
-.brand-name { color: var(--accent-indigo); }
+.brand-name { color: var(--accent-primary); }
 
 .nav { display: flex; gap: 28px; font-weight: 600; font-size: 15px; }
-.nav a:hover { color: var(--accent-indigo); }
+.nav a:hover { color: var(--accent-primary); }
 .header-actions { display: flex; align-items: center; gap: 20px; }
 
-/* --- 2. HERO БЛОК С ФОНОМ ИНДИГО (#6366F1) И ЛАЙМОМ (#DDF365) --- */
+/* ==========================================================================
+   5. HERO БЛОК
+   ========================================================================== */
 .hero-indigo {
-  background-color: var(--accent-indigo);
-  background-image: url('https://abit.itmo.ru/images/noise_bg.webp');
+  background-color: var(--accent-primary);
+  background-image: url('assets/images/noise_bg_2.webp');
   background-repeat: repeat;
   color: #FFFFFF;
   padding: 80px 0 70px;
   text-align: center;
 }
-.hero-indigo .brand-ip { color: #FFFFFF; }
-.hero-indigo .brand-name { color: var(--accent-lime); }
-
 .hero__badge {
-  display: inline-block; padding: 6px 18px; background: var(--accent-lime);
+  display: inline-block; padding: 6px 18px; background: var(--accent-secondary);
   color: #0F172A; font-size: 13px; font-weight: 800; border-radius: 20px; margin-bottom: 24px;
 }
 .hero__title {
-  font-size: 44px;
-  font-weight: 800;
-  max-width: 900px;
-  margin: 0 auto 18px;
-  line-height: 1.2;
-  color: #FFFFFF; /* Заголовок на индиго-фоне всегда белый */
+  font-size: 44px; font-weight: 800; max-width: 900px; margin: 0 auto 18px; line-height: 1.2;
+  color: var(--text-main);
 }
-.hero__title span { color: var(--accent-lime); }
-.hero__subtitle { font-size: 18px; color: #E0E7FF; max-width: 650px; margin: 0 auto; opacity: 0.95; }
+.hero__title span { color: var(--accent-secondary); }
+.hero__subtitle { font-size: 18px; color: var(--text-muted); max-width: 650px; margin: 0 auto; }
 
-/* --- 3. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ 1 в 1 (скрины №1 и №2) --- */
-.uiverse-toggle {
-  position: relative; display: inline-block; width: 62px; height: 32px;
+/* ==========================================================================
+   6. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (JustCode14/red-dingo-61)
+   ========================================================================== */
+.switch { font-size: 14px; position: relative; display: inline-block; width: 4em; height: 2.2em; border-radius: 30px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; cursor: pointer; inset: 0; background-color: #2a2a2a;
+  transition: 0.4s; border-radius: 30px; overflow: hidden; border: 1px solid var(--border-color);
 }
-.uiverse-toggle input { opacity: 0; width: 0; height: 0; }
+.slider:before {
+  position: absolute; content: ""; height: 1.2em; width: 1.2em; border-radius: 20px;
+  left: 0.5em; bottom: 0.4em; transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+.switch input:checked + .slider { background-color: #00a6ff; }
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+.star { background-color: #fff; border-radius: 50%; position: absolute; width: 4px; height: 4px; transition: all 0.4s; }
+.star_1 { left: 2.5em; top: 0.5em; }
+.star_2 { left: 2.2em; top: 1.2em; }
+.star_3 { left: 3em; top: 0.9em; }
+.switch input:checked ~ .slider .star { opacity: 0; }
+.cloud { width: 3.5em; position: absolute; bottom: -1.4em; left: -1.1em; opacity: 0; transition: all 0.4s; }
+.switch input:checked ~ .slider .cloud { opacity: 1; }
 
-.uiverse-toggle__slider {
-  position: absolute; cursor: pointer; inset: 0;
-  background-color: #e8e8e8; /* Светлый режим по умолчанию (скрин #2) */
-  border-radius: 30px; transition: 0.3s;
-  display: flex; align-items: center; justify-content: space-between; padding: 0 8px;
-  border: 1px solid #ccc;
-}
-.uiverse-toggle__knob {
-  position: absolute; height: 24px; width: 22px;
-  right: 4px; top: 3px;
-  background-color: #FFFFFF;
-  border-radius: 50%; transition: 0.3s; z-index: 2;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-.uiverse-toggle__icon { font-size: 12px; z-index: 1; user-select: none; }
-
-/* Переключение в тёмный режим (скрин #1) */
-[data-theme="dark"] .uiverse-toggle__slider {
-  background-color: #212121; border-color: #444;
-}
-[data-theme="dark"] .uiverse-toggle__knob {
-  transform: translateX(-32px); background-color: #121212;
-}
-
-/* --- 4. КНОПКА "СВЯЗАТЬСЯ" (silly-cat-86) С УЛУЧШЕННЫМ ХОВЕРОМ --- */
+/* ==========================================================================
+   7. КНОПКА "СВЯЗАТЬСЯ" (silly-cat-86)
+   ========================================================================== */
 .button-cta {
-  line-height: 1; text-decoration: none; display: inline-flex; border: none; cursor: pointer;
-  align-items: center; gap: 0.75rem;
-  background-color: var(--accent-indigo); /* В покое — цвет Индиго */
-  color: #FFFFFF;
+  line-height: 1; text-decoration: none; display: inline-flex; border: 1px solid var(--border-color);
+  cursor: pointer; align-items: center; gap: 0.75rem;
+  background-color: var(--bg-card);
+  color: var(--text-main);
   border-radius: 10rem; font-weight: 700; padding: 0.75rem 1.5rem; padding-left: 20px;
   white-space: nowrap; overflow: hidden; transition: all 0.3s; font-size: 14px;
-  box-shadow: none !important; /* Убираем любые подсветки под кнопками */
 }
-
-/* Кружочек иконки внутри кнопки в покое совпадает с фоном шапки */
-.button-cta .button__icon-wrapper {
+.button__icon-wrapper {
   flex-shrink: 0; width: 25px; height: 25px; position: relative;
-  color: #FFFFFF;
-  background-color: var(--bg-header-fixed); /* Совпадает с фоном шапки */
+  color: #FFFFFF; background-color: var(--accent-primary);
   border-radius: 50%; display: grid; place-items: center; overflow: hidden; transition: all 0.3s;
 }
-
-/* При наведении: текст и круг становятся цвета темы (черный в светлой, белый в тёмной) */
-.button-cta:hover {
-  background-color: var(--text-main) !important;
-  color: var(--bg-page) !important;
-  box-shadow: none !important;
-}
-
-.button-cta:hover .button__icon-wrapper {
-  background-color: var(--text-main) !important;
-  color: var(--bg-page) !important;
-}
-
+.button-cta:hover { background-color: var(--accent-primary); color: #FFFFFF; }
+.button-cta:hover .button__icon-wrapper { background-color: #FFFFFF; color: var(--accent-primary); }
 .button__icon-svg--copy { position: absolute; transform: translate(-150%, 150%); }
 .button-cta:hover .button__icon-svg:first-child { transition: transform 0.3s ease-in-out; transform: translate(150%, -150%); }
 .button-cta:hover .button__icon-svg--copy { transition: transform 0.3s ease-in-out 0.1s; transform: translate(0); }
 
-/* --- 5. COFFEE CARDS (honest-bullfrog-6) + LEARN MORE (massive-mayfly-74) --- */
+/* ==========================================================================
+   8. COFFEE CARDS (honest-bullfrog-6) + LEARN MORE (massive-mayfly-74)
+   ========================================================================== */
 .section-padding { padding: 80px 0; }
 .section-title { font-size: 32px; font-weight: 800; margin-bottom: 40px; }
 
@@ -177,25 +189,23 @@ a { text-decoration: none; color: inherit; }
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-radius: 0.7rem; /* 11px сккругления из шаблона Coffee Card */
-  transition: all ease 0.3s;
+  border-radius: 0.7rem; transition: all ease 0.3s;
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .coffee-card:hover {
   box-shadow: 0px 0px 20px 1px rgba(99, 102, 241, 0.25);
-  border: 1px solid var(--accent-indigo);
+  border: 1px solid var(--accent-primary);
 }
 
-.coffee-card__tag { font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--accent-indigo); margin-bottom: 12px; display: block; }
-.coffee-card__tag--orange { color: var(--accent-orange); }
-.coffee-card__tag--green { color: #10B981; }
+.coffee-card__tag { font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 12px; display: block; }
+.coffee-card__tag--orange { color: var(--color-orange); }
+.coffee-card__tag--green { color: var(--color-green); }
 
 .coffee-card__title { font-size: 22px; font-weight: 800; margin-bottom: 16px; }
 .coffee-card__list { list-style: none; margin-bottom: 28px; }
 .coffee-card__list li { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; padding-left: 16px; position: relative; }
-.coffee-card__list li::before { content: "•"; position: absolute; left: 0; color: var(--accent-indigo); }
+.coffee-card__list li::before { content: "•"; position: absolute; left: 0; color: var(--accent-primary); }
 
-/* КНОПКА LEARN MORE (massive-mayfly-74) */
 .learn-more-btn {
   position: relative; display: inline-block; cursor: pointer; outline: none; border: 0;
   vertical-align: middle; text-decoration: none; background: transparent; padding: 0;
@@ -204,7 +214,7 @@ a { text-decoration: none; color: inherit; }
 .learn-more-btn .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative; display: block; margin: 0; width: 3rem; height: 3rem;
-  background: var(--accent-indigo); border-radius: 1.625rem;
+  background: var(--accent-primary); border-radius: 1.625rem;
 }
 .learn-more-btn .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -226,109 +236,55 @@ a { text-decoration: none; color: inherit; }
 .learn-more-btn:hover .circle .icon.arrow { background: #fff; transform: translate(1rem, 0); }
 .learn-more-btn:hover .button-text { color: #fff; }
 
-/* --- 7. FAQ ALUMNI ITMO (ТОЧНАЯ КОПИЯ СКРИНШОТОВ) --- */
 .faq-section { background-color: var(--bg-card); border-top: 1px solid var(--border-color); }
-.alumni-faq__item {
-  border-bottom: 1px solid var(--border-color);
-  padding: 22px 0;
-}
-
-.alumni-faq__header {
+.faq__item { border-bottom: 1px solid var(--border-color); padding: 22px 0; }
+.faq__header {
   width: 100%; background: none; border: none; text-align: left;
   display: flex; justify-content: space-between; align-items: center;
   font-size: 20px; font-weight: 700; color: var(--text-main); cursor: pointer; gap: 20px;
 }
 
-/* Контейнер иконки */
-.alumni-faq__icon-wrapper {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: transparent; /* В закрытом состоянии кружка нет */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.25s ease-in-out;
+.faq__icon-wrapper {
+  width: 36px; height: 36px; border-radius: 50%; background: transparent;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.25s;
 }
-
-/* Тонкий крестик/плюсик */
-.alumni-faq__symbol {
-  position: relative;
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
+.faq__symbol { position: relative; width: 16px; height: 16px; transition: transform 0.3s; }
+.faq__symbol::before, .faq__symbol::after {
+  content: ""; position: absolute; background-color: var(--text-main); transition: transform 0.3s;
 }
+.faq__symbol::before { top: 7px; left: 0; width: 16px; height: 2px; }
+.faq__symbol::after { top: 0; left: 7px; width: 2px; height: 16px; }
 
-.alumni-faq__symbol::before,
-.alumni-faq__symbol::after {
-  content: "";
-  position: absolute;
-  background-color: var(--text-main);
-  transition: transform 0.3s ease;
-}
+.faq__item.active .faq__icon-wrapper { background-color: rgba(128, 128, 128, 0.15); }
+.faq__item.active .faq__symbol { transform: rotate(-45deg); }
 
-/* Горизонтальная линия плюса */
-.alumni-faq__symbol::before {
-  top: 7px; left: 0; width: 16px; height: 2px;
-}
-
-/* Вертикальная линия плюса */
-.alumni-faq__symbol::after {
-  top: 0; left: 7px; width: 2px; height: 16px;
-}
-
-/* СОСТОЯНИЕ ОТКРЫТОГО ВОПРОСА (СКРИНШОТ №1 С ALUMNI.ITMO) */
-.alumni-faq__item.active .alumni-faq__icon-wrapper {
-  background-color: rgba(0, 0, 0, 0.08); /* Появляется серый круг под крестиком */
-}
-
-[data-theme="dark"] .alumni-faq__item.active .alumni-faq__icon-wrapper {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.alumni-faq__item.active .alumni-faq__symbol {
-  transform: rotate(-45deg); /* Поворачиваем плюс на 45 градусов — получается крестик ✕ */
-}
-
-.alumni-faq__body {
+.faq__body {
   max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s;
   font-size: 15px; color: var(--text-muted); line-height: 1.7; padding-top: 0;
 }
-.alumni-faq__body a { color: var(--accent-indigo); text-decoration: underline; font-weight: 600; }
-.alumni-faq__item.active .alumni-faq__body { max-height: 300px; padding-top: 16px; }
+.faq__body a { color: var(--accent-primary); text-decoration: underline; font-weight: 600; }
+.faq__item.active .faq__body { max-height: 300px; padding-top: 16px; }
 
-/* --- 6. УВЕЛИЧЕННЫЕ СОЦИАЛЬНЫЕ ИКОНКИ (horrible-eel-23) 58PX × 58PX --- */
+/* ==========================================================================
+   10. ФУТЕР И СОЦИАЛЬНЫЕ КНОПКИ (horrible-eel-23)
+   ========================================================================== */
 .footer {
-  background-color: var(--bg-page);
-  background-image: var(--bg-page-noise);
-  color: var(--text-main);
-  padding: 60px 0 30px;
-  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-page); background-image: var(--bg-noise);
+  color: var(--text-main); padding: 60px 0 30px; border-top: 1px solid var(--border-color);
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
 .logo--footer { margin-bottom: 12px; }
-.footer-text { font-size: 13px; max-width: 300px; }
-.footer-heading {
-  color: var(--text-main); /* Заголовки колонок становятся цвета основного текста */
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
+.footer-text { font-size: 13px; max-width: 300px; color: var(--text-muted); }
+.footer-heading { color: var(--text-main); font-size: 15px; font-weight: 700; margin-bottom: 16px; }
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 8px; font-size: 13px; }
-.footer-links a {
-  color: var(--text-muted);
-}
-.footer-links a:hover {
-  color: var(--accent-indigo);
-}
-.footer-copyright { text-align: center; font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
+.footer-links a { color: var(--text-muted); }
+.footer-links a:hover { color: var(--accent-primary); }
+.footer-copyright { text-align: center; font-size: 12px; border-top: 1px solid var(--border-color); padding-top: 24px; color: var(--text-muted); }
 
 .social-card { display: flex; gap: 14px; }
 .socialContainer {
-  width: 58px; height: 58px; /* Увеличенный размер как просил! */
-  background-color: var(--social-bg);
+  width: 58px; height: 58px; background-color: var(--social-bg);
   border: 1px solid var(--border-color); border-radius: 8px;
   display: flex; align-items: center; justify-content: center; overflow: hidden; transition: 0.3s;
 }
@@ -343,7 +299,9 @@ a { text-decoration: none; color: inherit; }
   100% { transform: translateY(0); opacity: 1; }
 }
 
-/* BACK TO TOP (afraid-falcon-17) */
+/* ==========================================================================
+   11. BACK TO TOP (afraid-falcon-17)
+   ========================================================================== */
 .back-to-top-btn {
   width: 50px; height: 50px; border-radius: 50%;
   background-color: var(--text-main); border: none; font-weight: 600;
@@ -354,69 +312,7 @@ a { text-decoration: none; color: inherit; }
 }
 .back-to-top-btn.visible { opacity: 1; pointer-events: auto; }
 .back-to-top-btn .svgIcon { width: 14px; transition: 0.3s; fill: var(--bg-page); }
-.back-to-top-btn:hover { width: 140px; border-radius: 50px; background-color: var(--accent-indigo); }
+.back-to-top-btn:hover { width: 140px; border-radius: 50px; background-color: var(--accent-primary); }
 .back-to-top-btn:hover .svgIcon { transform: translateY(-200%); }
 .back-to-top-btn::before { position: absolute; bottom: -20px; content: "Наверх ↑"; color: white; font-size: 0px; transition: 0.3s; }
 .back-to-top-btn:hover::before { font-size: 13px; opacity: 1; bottom: unset; }
-
-/* --- СТИЛИ ЛАМПОЧКИ С UIVERSE (warm-panther-53) --- */
-.l {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1em;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 0.75em;
-  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3) inset;
-  color: #fdea7b;
-  padding: 0.15em;
-  width: 3em;
-  height: 1.5em;
-  transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-}
-
-.l:before, .l:after { content: ""; display: block; }
-
-.l:before {
-  background-color: #d7d7d7;
-  border-radius: 50%;
-  width: 1.2em;
-  height: 1.2em;
-  transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-  z-index: 1;
-}
-
-.l:after {
-  background:
-    linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% / 50% 100%,
-    repeating-linear-gradient(90deg, #bbb 0, #bbb, #bbb 20%, #999 20%, #999 40%) 0 50% / 50% 100%,
-    radial-gradient(circle at 50% 50%, #888 25%, transparent 26%);
-  background-repeat: no-repeat;
-  border: 0.25em solid transparent;
-  border-left: 0.4em solid #d8d8d8;
-  border-right: 0 solid transparent;
-  transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-  transform: translateX(-22.5%);
-  transform-origin: 25% 50%;
-  width: 1.2em;
-  height: 1em;
-  box-sizing: border-box;
-}
-
-.l:checked {
-  background-color: rgba(0, 0, 0, 0.45);
-  box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1) inset;
-}
-
-.l:checked:before {
-  background-color: currentColor;
-  transform: translateX(125%);
-}
-
-.l:checked:after {
-  border-left-color: currentColor;
-  transform: translateX(-2.5%) rotateY(180deg);
-}

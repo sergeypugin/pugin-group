@@ -1,28 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. ПЕРЕКЛЮЧАТЕЛЬ ТЕМ UIVERSE (ПО МАКЕТУ СКРИНШОТОВ)
   const themeInput = document.getElementById('theme-toggle-input');
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // При загрузке проверяем тему
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  themeInput.checked = (savedTheme === 'dark');
+  // 1. АВТО-ОПРЕДЕЛЕНИЕ ТЕМЫ ИЗ ОС ИЛИ LOCALSTORAGE
+  const savedTheme = localStorage.getItem('theme');
+  let currentTheme = savedTheme ? savedTheme : (mediaQuery.matches ? 'dark' : 'light');
 
-  // При клике на лампу
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeInput.checked = (theme === 'dark');
+  }
+
+  applyTheme(currentTheme);
+
+  // Переключение кнопкой
   themeInput.addEventListener('change', () => {
     const newTheme = themeInput.checked ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
   });
 
-  // 2. FAQ АККОРДЕОН (ALUMNI.ITMO - МИНИМАЛИЗМ)
-  const faqHeaders = document.querySelectorAll('.alumni-faq__header');
+  // Отслеживание изменения темы в ОС на лету
+  mediaQuery.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
+  // 2. FAQ АККОРДЕОН
+  const faqHeaders = document.querySelectorAll('.faq__header');
   faqHeaders.forEach(header => {
     header.addEventListener('click', () => {
       const item = header.parentElement;
       const isOpen = item.classList.contains('active');
 
-      document.querySelectorAll('.alumni-faq__item').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.faq__item').forEach(el => el.classList.remove('active'));
       if (!isOpen) item.classList.add('active');
     });
   });
