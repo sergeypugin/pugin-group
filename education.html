@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательным организациям — ИП Евгений Пугин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">🏢 ИП Евгений Пугин</a>
+            <nav class="nav">
+                <a href="index.html" class="nav__link">← На главную</a>
+                <a href="education.html" class="nav__link nav__link--active">Образование</a>
+                <a href="logistics.html" class="nav__link">Логистика</a>
+                <a href="dev.html" class="nav__link">Разработка ПО</a>
+            </nav>
+            <div class="controls">
+                <button class="btn btn--outline btn--sm" id="theme-toggle" onclick="toggleTheme()">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="badge badge--b2g" style="margin-bottom: 12px;">Официальный поставщик ГК «Просвещение»</span>
+            <h1 class="hero__title" data-scramble>Комплексное оснащение образовательных учреждений</h1>
+            <p class="hero__subtitle">
+                Поставка учебной литературы, интерактивного оборудования и лицензионного ПО по 44-ФЗ и 223-ФЗ
+            </p>
+        </div>
+    </section>
+
+    <section class="section section--alt">
+        <div class="container">
+            <h2 class="section__title">Каталог решений для ВУЗов и школ</h2>
+
+            <div class="bento-grid" style="margin-top: 32px;">
+                <div class="card">
+                    <h3 class="card__title">📚 Учебная литература</h3>
+                    <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">
+                        Официальные учебники, пособия и методические комплекты ГК «Просвещение».
+                    </p>
+                    <a href="#" class="btn btn--accent btn--sm">Скачать прайс-лист (.xlsx)</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card__title">🖥️ Софт и мультимедиа</h3>
+                    <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">
+                        Интерактивные программы, обучающие платформы, цифровые лаборатории.
+                    </p>
+                    <a href="#" class="btn btn--accent btn--sm">Запросить демо-доступ</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card__title">🛠️ Оборудование</h3>
+                    <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">
+                        Компьютерные классы, интерактивные доски, робототехника и 3D-принтеры.
+                    </p>
+                    <a href="#" class="btn btn--accent btn--sm">Сформировать ТЗ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 ИП Евгений Пугин. Все права защищены.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
