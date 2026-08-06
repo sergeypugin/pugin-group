@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
 </head>
 <body>
 
-<!-- ЗАКРЕПЛЕННАЯ ШТОРКА (FIXED HEADER) -->
-<header class="header-fixed">
+<!-- Зафиксированная шапка сайта -->
+<header class="header">
     <div class="container header__container">
         <a href="#" class="logo">
             <span class="brand-ip">ИП</span>
@@ -26,26 +26,12 @@
         </nav>
 
         <div class="header-actions">
-            <!-- ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (JustCode14/red-dingo-61) -->
-            <label class="switch" title="Переключить тему">
-                <input id="theme-toggle-input" type="checkbox" />
-                <span class="slider">
-            <div class="star star_1"></div>
-            <div class="star star_2"></div>
-            <div class="star star_3"></div>
-            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-              <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path>
-            </svg>
-          </span>
-            </label>
-
-            <!-- КНОПКА "СВЯЗАТЬСЯ" (silly-cat-86) -->
-            <a href="#contacts" class="button-cta">
-          <span class="button__icon-wrapper">
-            <svg viewBox="0 0 14 15" fill="none" class="button__icon-svg" width="10">
+            <a href="#contacts" class="btn-cta">
+          <span class="btn-cta__icon">
+            <svg viewBox="0 0 14 15" fill="none" class="icon-svg" width="10">
               <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor"></path>
             </svg>
-            <svg viewBox="0 0 14 15" fill="none" width="10" class="button__icon-svg button__icon-svg--copy">
+            <svg viewBox="0 0 14 15" fill="none" width="10" class="icon-svg icon-svg--copy">
               <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor"></path>
             </svg>
           </span>
@@ -55,97 +41,91 @@
     </div>
 </header>
 
-<!-- HERO-БЛОК -->
-<section class="hero-indigo">
-    <div class="container hero__container">
+<!-- Главный баннер с фоновой картинкой -->
+<section class="hero">
+    <div class="container">
         <span class="hero__badge">44-ФЗ / 223-ФЗ / B2B Интеграции</span>
         <h1 class="hero__title">Поставка ПО, ИТ-оборудования и <span>комплексная автоматизация</span></h1>
         <p class="hero__subtitle">Официальные решения для государственных образовательных организаций и коммерческих компаний по всей России.</p>
     </div>
 </section>
 
-<!-- ОСНОВНОЙ КОРПУС -->
-<main class="main-body">
+<!-- Основной контент страницы -->
+<main>
 
-    <!-- СЕКЦИЯ НАПРАВЛЕНИЙ (COFFEE CARDS) -->
-    <section class="section-padding" id="directions">
+    <!-- Секция карточек направлений -->
+    <section class="section" id="directions">
         <div class="container">
             <h2 class="section-title">Направления работы</h2>
 
-            <div class="coffee-cards-grid">
+            <div class="cards-grid">
 
-                <!-- КАРТОЧКА 1 -->
-                <div class="coffee-card-wrapper">
-                    <div class="coffee-card">
-                        <div>
-                            <span class="coffee-card__tag">44-ФЗ / 223-ФЗ</span>
-                            <h3 class="coffee-card__title">Образовательным организациям</h3>
-                            <ul class="coffee-card__list">
-                                <li>Официальные учебники «Просвещение»</li>
-                                <li>Подготовка 3-х КП для обоснования НМЦК</li>
-                                <li>Интерактивные панели и цифровые классы</li>
-                            </ul>
-                        </div>
-
-                        <a href="education.html" class="learn-more-btn">
-                <span class="circle" aria-hidden="true">
-                  <span class="icon arrow"></span>
-                </span>
-                            <span class="button-text">Подробнее</span>
-                        </a>
+                <!-- Карточка 1 -->
+                <div class="card">
+                    <div>
+                        <span class="card__tag">44-ФЗ / 223-ФЗ</span>
+                        <h3 class="card__title">Образовательным организациям</h3>
+                        <ul class="card__list">
+                            <li>Официальные учебники «Просвещение»</li>
+                            <li>Подготовка 3-х КП для обоснования НМЦК</li>
+                            <li>Интерактивные панели и цифровые классы</li>
+                        </ul>
                     </div>
+
+                    <a href="coming-soon.html" class="learn-more-btn">
+              <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+              </span>
+                        <span class="button-text">Подробнее</span>
+                    </a>
                 </div>
 
-                <!-- КАРТОЧКА 2 -->
-                <div class="coffee-card-wrapper">
-                    <div class="coffee-card">
-                        <div>
-                            <span class="coffee-card__tag coffee-card__tag--orange">1С / ТСД / Клеверенс</span>
-                            <h3 class="coffee-card__title">Логистика и Торговля</h3>
-                            <ul class="coffee-card__list">
-                                <li>Автоматизация софтом «Клеверенс»</li>
-                                <li>Поставка ТСД-сканеров и принтеров</li>
-                                <li>Маркировка «Честный ЗНАК» и ЕГАИС</li>
-                            </ul>
-                        </div>
-
-                        <a href="logistics.html" class="learn-more-btn">
-                <span class="circle" aria-hidden="true">
-                  <span class="icon arrow"></span>
-                </span>
-                            <span class="button-text">Подробнее</span>
-                        </a>
+                <!-- Карточка 2 -->
+                <div class="card">
+                    <div>
+                        <span class="card__tag card__tag--orange">1С / ТСД / Клеверенс</span>
+                        <h3 class="card__title">Логистика и Торговля</h3>
+                        <ul class="card__list">
+                            <li>Автоматизация софтом «Клеверенс»</li>
+                            <li>Поставка ТСД-сканеров и принтеров</li>
+                            <li>Маркировка «Честный ЗНАК» и ЕГАИС</li>
+                        </ul>
                     </div>
+
+                    <a href="stub.html" class="learn-more-btn">
+              <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+              </span>
+                        <span class="button-text">Подробнее</span>
+                    </a>
                 </div>
 
-                <!-- КАРТОЧКА 3 -->
-                <div class="coffee-card-wrapper">
-                    <div class="coffee-card">
-                        <div>
-                            <span class="coffee-card__tag coffee-card__tag--green">B2B / REST API</span>
-                            <h3 class="coffee-card__title">Заказная разработка ПО</h3>
-                            <ul class="coffee-card__list">
-                                <li>B2B-порталы и личные кабинеты</li>
-                                <li>Проектирование REST/gRPC API</li>
-                                <li>Доработка и поддержка систем</li>
-                            </ul>
-                        </div>
-
-                        <a href="dev.html" class="learn-more-btn">
-                <span class="circle" aria-hidden="true">
-                  <span class="icon arrow"></span>
-                </span>
-                            <span class="button-text">Подробнее</span>
-                        </a>
+                <!-- Карточка 3 -->
+                <div class="card">
+                    <div>
+                        <span class="card__tag card__tag--green">B2B / REST API</span>
+                        <h3 class="card__title">Заказная разработка ПО</h3>
+                        <ul class="card__list">
+                            <li>B2B-порталы и личные кабинеты</li>
+                            <li>Проектирование REST/gRPC API</li>
+                            <li>Доработка и поддержка систем</li>
+                        </ul>
                     </div>
+
+                    <a href="stub.html" class="learn-more-btn">
+              <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+              </span>
+                        <span class="button-text">Подробнее</span>
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- FAQ СЕКЦИЯ -->
-    <section class="section-padding faq-section" id="faq">
+    <!-- Секция часто задаваемых вопросов -->
+    <section class="section faq-section" id="faq">
         <div class="container container--narrow">
             <h2 class="section-title">Часто задаваемые вопросы</h2>
 
@@ -154,9 +134,7 @@
                 <div class="faq__item">
                     <button class="faq__header">
                         <span>Как оформить закупку учебной литературы или ПО по 44-ФЗ / 223-ФЗ?</span>
-                        <div class="faq__icon-wrapper">
-                            <span class="faq__symbol"></span>
-                        </div>
+                        <div class="faq__icon"></div>
                     </button>
                     <div class="faq__body">
                         Мы подготавливаем 3 независимых КП для обоснования НМЦК, формируем техническое задание и полностью сопровождаем сделку от заявки до подписания актов в ЕИС.
@@ -166,9 +144,7 @@
                 <div class="faq__item">
                     <button class="faq__header">
                         <span>Поставляется ли софт Клеверенс с готовой настройкой под 1С?</span>
-                        <div class="faq__icon-wrapper">
-                            <span class="faq__symbol"></span>
-                        </div>
+                        <div class="faq__icon"></div>
                     </button>
                     <div class="faq__body">
                         Да, мы поставляем как коробочные версии программных продуктов «Клеверенс» (Склад 15, Магазин 15), так и оказываем услуги по индивидуальной настройке и интеграции с вашей базой 1С / ERP.
@@ -178,9 +154,7 @@
                 <div class="faq__item">
                     <button class="faq__header">
                         <span>Каковы сроки разработки индивидуального программного обеспечения?</span>
-                        <div class="faq__icon-wrapper">
-                            <span class="faq__symbol"></span>
-                        </div>
+                        <div class="faq__icon"></div>
                     </button>
                     <div class="faq__body">
                         Сроки зависят от объёма ТЗ. Первичную оценку проекта, архитектурный план и смету мы предоставляем в течение 2–3 рабочих дней после заполнения брифа.
@@ -193,7 +167,7 @@
 
 </main>
 
-<!-- ФУТЕР -->
+<!-- Подвал сайта -->
 <footer class="footer" id="contacts">
     <div class="container">
         <div class="footer-grid">
@@ -208,9 +182,9 @@
             <div>
                 <h4 class="footer-heading">Разделы</h4>
                 <ul class="footer-links">
-                    <li><a href="education.html">Образование</a></li>
-                    <li><a href="logistics.html">Логистика</a></li>
-                    <li><a href="dev.html">Разработка ПО</a></li>
+                    <li><a href="stub.html">Образование</a></li>
+                    <li><a href="stub.html">Логистика</a></li>
+                    <li><a href="stub.html">Разработка ПО</a></li>
                 </ul>
             </div>
 
@@ -226,17 +200,21 @@
             <div>
                 <h4 class="footer-heading">Мессенджеры и Соцсети</h4>
                 <div class="social-card">
-                    <a href="#" class="socialContainer containerOne" title="Instagram">
-                        <svg class="socialSvg" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path></svg>
+                    <!-- VK -->
+                    <a href="#" class="social-container container-vk" title="ВКонтакте">
+                        <svg class="social-svg" viewBox="0 0 24 24"><path d="M15.073 2H8.937C3.388 2 2 3.388 2 8.937v6.136C2 20.612 3.388 22 8.937 22h6.136C20.612 22 22 20.612 22 15.073V8.937C22 3.388 20.612 2 15.073 2zm3.17 13.785h-1.42c-.538 0-.703-.427-1.67-1.393-1.122-1.082-1.616-.838-1.616.108v.81c0 .351-.112.475-1.047.475-1.547 0-3.26-.938-4.468-2.618-1.83-2.522-2.336-4.41-2.336-4.795 0-.216.082-.416.48-.416h1.42c.362 0 .497.164.636.554.693 2.012 1.854 3.774 2.33 3.774.179 0 .26-.082.26-.532V11.1c-.054-.954-.28-1.037-.28-1.378 0-.225.188-.41.488-.41h2.235c.307 0 .422.164.422.527v2.852c0 .307.135.416.223.416.179 0 .328-.108.66-.437 1.028-1.152 1.76-2.923 1.76-2.923.093-.216.257-.38.618-.38h1.42c.423 0 .524.216.432.518-.175.811-1.878 3.232-1.878 3.232-.15.244-.21.353 0 .636.15.201.646.632 1.082 1.14 1.08 1.258 1.487 1.833 1.543 2.133.082.3-.082.463-.532.463z"/></svg>
                     </a>
-                    <a href="#" class="socialContainer containerTwo" title="Twitter/Telegram">
-                        <svg class="socialSvg" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path></svg>
+                    <!-- Max -->
+                    <a href="#" class="social-container container-max" title="Max Мессенджер">
+                        <svg class="social-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
                     </a>
-                    <a href="#" class="socialContainer containerThree" title="LinkedIn">
-                        <svg class="socialSvg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                    <!-- Telegram -->
+                    <a href="#" class="social-container container-telegram" title="Telegram">
+                        <svg class="social-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.22.14.31-.01.06.01.23 0 .38z"/></svg>
                     </a>
-                    <a href="#" class="socialContainer containerFour" title="WhatsApp">
-                        <svg class="socialSvg" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path></svg>
+                    <!-- LinkedIn -->
+                    <a href="#" class="social-container container-linkedin" title="LinkedIn">
+                        <svg class="social-svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
                     </a>
                 </div>
             </div>
@@ -248,8 +226,8 @@
     </div>
 </footer>
 
-<!-- КНОПКА ВОЗВРАТА НАВЕРХ -->
-<button id="back-to-top" class="back-to-top-btn" title="Back to Top">
+<!-- Кнопка возврата наверх -->
+<button id="back-to-top" class="back-to-top-btn" title="Наверх">
     <svg class="svgIcon" viewBox="0 0 384 512">
         <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
     </svg>
