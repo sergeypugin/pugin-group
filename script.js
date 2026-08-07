@@ -1,21 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Аккордеон часто задаваемых вопросов
-  const faqHeaders = document.querySelectorAll('.faq__header');
+  // 1. Авто-загрузка единой шапки и футера
+  const loadComponent = (id, path) => {
+    const el = document.getElementById(id);
+    if (el) {
+      fetch(path)
+        .then(res => res.text())
+        .then(html => { el.innerHTML = html; })
+        .catch(err => console.error('Ошибка загрузки ' + path, err));
+    }
+  };
 
-  faqHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const isOpen = item.classList.contains('active');
+  loadComponent('header-placeholder', 'components/header.html');
+  loadComponent('footer-placeholder', 'components/footer.html');
 
-      document.querySelectorAll('.faq__item').forEach(el => {
-        el.classList.remove('active');
-      });
+  // 2. FAQ
+  document.addEventListener('click', (e) => {
+    const header = e.target.closest('.faq__header');
+    if (!header) return;
 
-      if (!isOpen) {
-        item.classList.add('active');
-      }
-    });
+    const item = header.parentElement;
+    const isOpen = item.classList.contains('active');
+
+    document.querySelectorAll('.faq__item').forEach(el => el.classList.remove('active'));
+
+    if (!isOpen) {
+      item.classList.add('active');
+    }
   });
 
   // Кнопка возврата наверх

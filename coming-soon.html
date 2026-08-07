@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Раздел в разработке — ИП Евгений Пугин</title>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .stub-wrapper {
           min-height: calc(100vh - 72px - 280px);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 60px 24px;
+          display: flex; flex-direction: column; align-items: center;
+          justify-content: center; text-align: center; padding: 60px 24px;
         }
         .stub-icon { font-size: 48px; margin-bottom: 16px; }
         .stub-title { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
@@ -23,28 +19,29 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="container header__container">
-        <a href="../index.html" class="logo">
-            <span class="brand-ip">ИП</span>
-            <span class="brand-name">Евгений Пугин</span>
-        </a>
-        <a href="../index.html#contacts" class="btn-cta">Связаться</a>
-    </div>
-</header>
+<!-- Модульная шапка -->
+<div id="header-placeholder"></div>
 
 <main class="stub-wrapper">
     <div class="stub-icon"></div>
     <h1 class="stub-title">Раздел в разработке</h1>
     <p class="stub-text">Мы наполняем этот раздел подробной информацией. Напишите нам или позвоните, чтобы получить консультацию уже сейчас.</p>
-    <a href="../index.html" class="btn-cta">Вернуться на главную &rarr;</a>
+    <a href="index.html" class="btn-cta">
+  <span class="btn-cta__icon">
+    <svg viewBox="0 0 14 15" fill="none" class="icon-svg" width="10">
+      <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor"></path>
+    </svg>
+    <svg viewBox="0 0 14 15" fill="none" width="10" class="icon-svg icon-svg--copy">
+      <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor"></path>
+    </svg>
+  </span>
+  Вернуться на главную
+</a>
 </main>
 
-<footer class="footer">
-    <div class="container footer-copyright">
-        © 2026 ИП Евгений Пугин. Все права защищены.
-    </div>
-</footer>
+<!-- Модульный футер -->
+<div id="footer-placeholder"></div>
 
+<script src="script.js"></script>
 </body>
 </html>
