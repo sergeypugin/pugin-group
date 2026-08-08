@@ -53,14 +53,14 @@
   --color-lime: #DDF365;
   --color-orange: #FF6B00;
   --color-green: #10B981;
-  --color-yellow-mail: #ff7f4d;
 
+  --color-yellow-mail: #ff7f4d;
   --color-vk: #0077FF;
   --color-max: #6366F1;
   --color-telegram: #00ACEE;
   --color-linkedin: #0072B1;
 
-  --bg-noise: url('assets/images/noise_bg_2.webp');
+  --bg-noise: url('assets/images/background/noise_bg_2.webp');
 }
 
 *, *::before, *::after {
@@ -86,6 +86,20 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
+main a {
+  color: var(--color-indigo);
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(99, 102, 241, 0.35);
+  padding-bottom: 1px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+main a:hover {
+  color: var(--text-main);
+  border-bottom-color: var(--text-main);
+}
+
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .container--faq { max-width: 1000px; }
 
@@ -101,7 +115,15 @@ a { text-decoration: none; color: inherit; }
 
 .header__container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
-.logo { font-size: 20px; font-weight: 800; display: flex; gap: 6px; align-items: center; }
+.logo {
+  font-family: 'ALS Gorizont', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
 .brand-ip { color: var(--color-charcoal); }
 .brand-name { color: var(--color-indigo); }
 
@@ -130,7 +152,7 @@ a { text-decoration: none; color: inherit; }
 
 .hero {
   position: relative; background-color: var(--color-charcoal);
-  background-image: url('assets/images/image_bg.jpg');
+  background-image: url('assets/images/background/image_bg.jpg');
   background-size: cover; background-position: center; color: var(--color-white);
   padding: 80px 0 70px; text-align: center;
 }
