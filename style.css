@@ -56,7 +56,7 @@
 
   --color-yellow-mail: #ff7f4d;
   --color-vk: #0077FF;
-  --color-max: #6366F1;
+  --color-max: #4c56e6;
   --color-telegram: #00ACEE;
   --color-linkedin: #0072B1;
 
@@ -86,8 +86,8 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-main a {
-  color: var(--color-indigo);
+.text-link {
+  color: var(--indigo);
   text-decoration: none;
   border-bottom: 1.5px solid rgba(99, 102, 241, 0.35);
   padding-bottom: 1px;
@@ -95,7 +95,7 @@ main a {
   transition: all 0.2s ease;
 }
 
-main a:hover {
+.text-link:hover {
   color: var(--color-charcoal);
   border-bottom-color: var(--color-charcoal);
 }
@@ -115,7 +115,7 @@ main a:hover {
 
 .header__container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
-.logo {
+.logo, .logo span {
   font-family: 'ALS Gorizont', sans-serif;
   font-size: 20px;
   font-weight: 800;
