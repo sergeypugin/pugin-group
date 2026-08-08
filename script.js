@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Авто-загрузка единой шапки и футера
+  // 1. Авто-загрузка компонент (хедер, футер, кнопка неверх)
   const loadComponent = (id, path) => {
     const el = document.getElementById(id);
     if (el) {
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadComponent('header-placeholder', 'components/header.html');
   loadComponent('footer-placeholder', 'components/footer.html');
+  loadComponent('back-to-top-placeholder', 'components/back-to-top.html');
 
   // 2. FAQ
   document.addEventListener('click', (e) => {
@@ -30,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Кнопка возврата наверх
-  const backToTopBtn = document.getElementById('back-to-top');
-
   window.addEventListener('scroll', () => {
+    const backToTopBtn = document.getElementById('back-to-top');
+      if (!backToTopBtn) return;
     if (window.scrollY > 300) {
       backToTopBtn.classList.add('visible');
     } else {
@@ -40,8 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('#back-to-top');
+      if (btn) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
   });
 
 });
