@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadComponent('header-placeholder', 'components/header.html');
   loadComponent('footer-placeholder', 'components/footer.html');
   loadComponent('back-to-top-placeholder', 'components/back-to-top.html');
+  loadComponent('cookie-placeholder', 'components/cookie-banner.html');
 
   // 2. FAQ
   document.addEventListener('click', (e) => {
@@ -48,4 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
+});
+
+setTimeout(() => {
+  if (!localStorage.getItem('cookieAccepted')) {
+    const cookieBanner = document.getElementById('cookie-banner');
+    if (cookieBanner) cookieBanner.style.display = 'flex';
+  }
+}, 500);
+
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'accept-cookies-btn') {
+    localStorage.setItem('cookieAccepted', 'true');
+    const cookieBanner = document.getElementById('cookie-banner');
+    if (cookieBanner) cookieBanner.style.display = 'none';
+  }
 });
