@@ -115,7 +115,7 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center;
 }
 
-.header__container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.header__container { positin: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
 .logo, .logo span {
   font-family: 'ALS Gorizont', sans-serif;
@@ -129,8 +129,12 @@ a { text-decoration: none; color: inherit; }
 .brand-ip { color: var(--color-charcoal); }
 .brand-name { color: var(--color-indigo); }
 
-.nav { display: flex; gap: 28px; font-weight: 600; font-size: 15px; }
+.nav { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 28px; font-weight: 600; font-size: 15px; }
 .nav a:hover { color: var(--color-indigo); }
+
+@media (max-width: 850px) {
+  .nav { position: static; transform: none; } /* Для мобилок сбрасываем в обычный режим */
+}
 
 .btn-cta {
   line-height: 1; display: inline-flex; align-items: center; gap: 0.75rem;
