@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-setTimeout(() => {
-  if (!localStorage.getItem('cookieAccepted')) {
-    const cookieBanner = document.getElementById('cookie-banner');
-    if (cookieBanner) cookieBanner.style.display = 'flex';
-  }
-}, 500);
-
-document.addEventListener('click', (e) => {
-  if (e.target && e.target.id === 'accept-cookies-btn') {
-    localStorage.setItem('cookieAccepted', 'true');
-    const cookieBanner = document.getElementById('cookie-banner');
-    if (cookieBanner) cookieBanner.style.display = 'none';
-  }
-});
+//setTimeout(() => {
+//  if (!localStorage.getItem('cookieAccepted')) {
+//    const cookieBanner = document.getElementById('cookie-banner');
+//    if (cookieBanner) cookieBanner.style.display = 'flex';
+//  }
+//}, 500);
+//
+//document.addEventListener('click', (e) => {
+//  if (e.target && e.target.id === 'accept-cookies-btn') {
+//    localStorage.setItem('cookieAccepted', 'true');
+//    const cookieBanner = document.getElementById('cookie-banner');
+//    if (cookieBanner) cookieBanner.style.display = 'none';
+//  }
+//});
