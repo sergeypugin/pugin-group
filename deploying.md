@@ -83,7 +83,7 @@ jobs:
       - name: Загрузка файлов в Яндекс Облако
         uses: jakejarvis/s3-sync-action@master
         with:
-          args: --acl public-read --follow-symlinks --delete --exclude "*.md" --exclude ".git*" --exclude ".git*/*" --exclude ".obsidian*/*"
+          args: --acl public-read --follow-symlinks --delete --exclude '*.md' --exclude '.git*' --exclude '.git*/*' --exclude '.obsidian*/*'
         env:
           AWS_S3_BUCKET: ${{ secrets.YC_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_SA_ACCESS_KEY }}
@@ -93,17 +93,20 @@ jobs:
 ```
 
 Тут из всего, что вам может понадобиться редактировать - это строка с `--exclude` (выбрать файлы/папки, которые не передавать в облако с гитхаба). Правила просты:
-1. Чтобы убрать файл, введите `--exclude "file_name"`
-2. Чтобы убрать папку со всем её содержимым, введите `--exclude "folder_name"`
+1. Чтобы убрать файл, введите `--exclude 'file_name'`
+2. Чтобы убрать папку со всем её содержимым, введите `--exclude 'folder_name'`
 
 Разберём вариант выше
 
 | Часть строки               | Описание (для чего)                          | Цель (что убрать)              |
 | -------------------------- | -------------------------------------------- | ------------------------------ |
-| `--exclude "*.md"`         | Убрать все `md`-файлы                        | `README` и пр.                 |
-| `--exclude ".git*"`        | Убрать все файлы, начинающиеся с `.git`      | `.gitignore`, `.gitattributes` |
-| `--exclude ".git*/*"`      | Убрать все папки, начинающиеся с `.git`      | `.git`, `.github`              |
-| `--exclude ".obsidian*/*"` | Убрать все папки, начинающиеся с `.obsidian` | `.obsidian`                    |
+| `--exclude '*.md'`         | Убрать все `md`-файлы                        | `README` и пр.                 |
+| `--exclude '.git*'`        | Убрать все файлы, начинающиеся с `.git`      | `.gitignore`, `.gitattributes` |
+| `--exclude '.git*/*'`      | Убрать все папки, начинающиеся с `.git`      | `.git`, `.github`              |
+| `--exclude '.obsidian*/*'` | Убрать все папки, начинающиеся с `.obsidian` | `.obsidian`                    |
+
+>[!important]
+>Ни в коем случае не используйте `"` вместо `'`. GitHub в случае с `"` разворачивает регулярки во всё то, что найдёт (т.е. вместо `--exclude "*.md"` он отправит в Yandex Cloud `--exclude README.md SomeFile.md AnotherFile.md`), что сломает деплоинг.
 
 Теперь стоит вам закоммитить этот файл, как тут же по ссылке `https://{your-backet-name}.website.yandexcloud.net` откроется ваш сайт!
 
