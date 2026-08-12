@@ -135,15 +135,16 @@ function exportToPdf() {
   window.print();
 }
 
-const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
-const docxColors = {
-  charcoal: getCssVar('--color-charcoal'),
-  indigo: getCssVar('--color-indigo'),
-  muted: getCssVar('--color-text-muted'),
-  border: getCssVar('--color-border-light')
-};
 function exportToDocx() {
+  const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+  const docxColors = {
+    charcoal: getCssVar('--color-charcoal'),
+    indigo: getCssVar('--color-indigo'),
+    muted: getCssVar('--color-text-muted'),
+    border: getCssVar('--color-border-light')
+  };
+
   let bodyContent = `
     <h1 style="font-size:18pt; color:${docxColors.charcoal}; margin-bottom:4pt;">Карточка организации</h1>
   `;
