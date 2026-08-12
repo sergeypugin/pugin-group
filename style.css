@@ -67,6 +67,9 @@
   --cookie-chip-color: #4A2311;
 
   --bg-noise: url('assets/images/background/noise_bg_2.webp');
+  --color-green: #10B981;
+  --color-pdf: #DE312B;
+  --color-docx: #0077FF;
 }
 
 *, *::before, *::after {
@@ -423,6 +426,233 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 16px;
 }
 
+/* Всё для company-card.html*/
+.card-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.Btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+.Btn--pdf { background-color: var(--color-pdf); }
+.Btn--docx { background-color: var(--color-docx); }
+.Btn--copy { background-color: var(--color-green); }
+
+.Btn .svgIcon {
+  fill: var(--color-white);
+  width: 16px;
+  height: 16px;
+  transition: fill 0.3s ease;
+}
+
+.Btn .icon2 {
+  width: 18px;
+  height: 5px;
+  border-bottom: 2px solid var(--color-white);
+  border-left: 2px solid var(--color-white);
+  border-right: 2px solid var(--color-white);
+  transition: border-color 0.3s ease;
+}
+
+.Btn:hover {
+  background-color: var(--color-black-pure);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.Btn--pdf:hover .svgIcon { fill: var(--color-pdf); animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+.Btn--pdf:hover .icon2 { border-color: var(--color-pdf); }
+
+.Btn--docx:hover .svgIcon { fill: var(--color-docx); animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+.Btn--docx:hover .icon2 { border-color: var(--color-docx); }
+
+.Btn--copy:hover .svgIcon { fill: var(--color-green); animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+.Btn--copy:hover .icon2 { border-color: var(--color-green); }
+
+/* Выплывающая подсказка (показывается ТОЛЬКО при hover) */
+.Btn .tooltip {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--color-black-pure);
+  color: var(--color-white);
+  padding: 4px 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 20;
+}
+
+.Btn .tooltip::before {
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-black-pure);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Выплывание подсказки при наведении */
+.Btn:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@keyframes slide-in-top {
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0px); opacity: 1; }
+}
+
+/* Стили карточки и сетки */
+.page-content { padding-top: 32px; padding-bottom: 80px; }
+.breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-muted); margin-bottom: 24px; }
+.breadcrumbs a { color: var(--color-text-muted); }
+.breadcrumbs a:hover { color: var(--color-indigo); }
+.breadcrumbs__sep { opacity: 0.4; }
+.breadcrumbs__current { color: var(--color-charcoal); font-weight: 600; }
+
+.company-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+.company-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: 32px;
+}
+
+.company-card__title { font-family: 'ALS Gorizont', sans-serif; font-size: 32px; font-weight: 800; color: var(--color-charcoal); }
+
+.card-section { margin-bottom: 36px; }
+.card-section:last-child { margin-bottom: 0; }
+.card-section__title { font-size: 13px; font-weight: 800; color: var(--color-indigo); letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 20px; }
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-group {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--color-border-light);
+}
+
+.info-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.info-group__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.info-group__value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.okved-table { border-top: 1px solid var(--color-border-light); }
+.okved-row { display: grid; grid-template-columns: 90px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-border-light); align-items: center; font-size: 14px; }
+.okved-code { font-weight: 700; color: var(--color-charcoal); }
+.okved-name { color: var(--color-text-muted); line-height: 1.5; }
+
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    padding-top: 0 !important;
+    background: var(--color-white) !important;
+    color: var(--color-black-pure) !important;
+  }
+
+  .header,
+  .footer,
+  .breadcrumbs,
+  .card-actions,
+  #back-to-top-placeholder,
+  #cookie-placeholder {
+    display: none !important;
+  }
+
+  .page-content {
+    padding: 0 !important;
+  }
+
+  .company-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .card-section,
+  .info-group,
+  .okved-row {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .card-section {
+    margin-bottom: 24px !important;
+  }
+
+  .info-group {
+    padding-bottom: 8px !important;
+  }
+}
+
 /* Карточки направлений станут вертикально друг под другом */
 @media (max-width: 1000px) {
   .cards-grid {
@@ -476,6 +706,11 @@ a { text-decoration: none; color: inherit; }
     .nav {
       display: none;
     }
+    /* Для карточке организации*/
+    .company-card { padding: 24px 20px; }
+    .company-card__header { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .info-group { grid-template-columns: 1fr; gap: 4px; }
+    .okved-row { grid-template-columns: 1fr; gap: 4px; }
 }
 
 @media (max-width: 400px) {
