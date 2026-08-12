@@ -15,7 +15,7 @@ jobs:
       - name: Загрузка файлов в Яндекс Облако
         uses: jakejarvis/s3-sync-action@master
         with:
-          args: --acl public-read --follow-symlinks --delete --exclude '*.md' --exclude '.git*' --exclude '.git*/*' --exclude '.obsidian*/*'
+          args: --acl public-read --follow-symlinks --delete --cache-control 'no-cache, must-revalidate' --exclude '*.md' --exclude '.git*' --exclude '.git*/*' --exclude '.obsidian*/*'
         env:
           AWS_S3_BUCKET: ${{ secrets.YC_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_SA_ACCESS_KEY }}

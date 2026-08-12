@@ -95,7 +95,7 @@ jobs:
       - name: Загрузка файлов в Яндекс Облако
         uses: jakejarvis/s3-sync-action@master
         with:
-          args: --acl public-read --follow-symlinks --delete --exclude '*.md' --exclude '.git*' --exclude '.git*/*' --exclude '.obsidian*/*'
+          args: --acl public-read --follow-symlinks --delete --cache-control 'no-cache, must-revalidate' --exclude '*.md' --exclude '.git*' --exclude '.git*/*' --exclude '.obsidian*/*'
         env:
           AWS_S3_BUCKET: ${{ secrets.YC_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_SA_ACCESS_KEY }}
@@ -103,6 +103,9 @@ jobs:
           AWS_S3_ENDPOINT: 'https://storage.yandexcloud.net'
           AWS_REGION: 'ru-central1'
 ```
+
+>[!note]
+> Браузер всегда старается хэшировать все возможные файлы, так что при обновлении сайта возможна ситуация, когда не все файлы были обновлены. На этот случай в коде есть строка `--cache-control 'no-cache, must-revalidate'`, которая "приказывает" браузеру убедиться, что версия файла - последняя.
 
 Тут из всего, что вам может понадобиться редактировать - это строка с `--exclude` (выбрать файлы/папки, которые не передавать в облако с гитхаба). Правила просты:
 1. Чтобы убрать файл, введите `--exclude 'file_name'`
