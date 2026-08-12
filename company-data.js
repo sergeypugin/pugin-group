@@ -56,13 +56,6 @@ const companyData = {
   }
 };
 
-const docxColors = {
-  charcoal: '#0F172A',
-  indigo: '#6366F1',
-  muted: '#475569',
-  border: '#CBD5E1'
-};
-
 function renderCompanyCard() {
   const container = document.getElementById('company-card-body');
   if (!container) return;
@@ -138,6 +131,18 @@ function getFormattedCompanyText() {
   return text.trim();
 }
 
+function exportToPdf() {
+  window.print();
+}
+
+const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+const docxColors = {
+  charcoal: getCssVar('--color-charcoal'),
+  indigo: getCssVar('--color-indigo'),
+  muted: getCssVar('--color-text-muted'),
+  border: getCssVar('--color-border-light')
+};
 function exportToDocx() {
   let bodyContent = `
     <h1 style="font-size:18pt; color:${docxColors.charcoal}; margin-bottom:4pt;">Карточка организации</h1>
@@ -183,10 +188,6 @@ function exportToDocx() {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-}
-
-function exportToPdf() {
-  window.print();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
