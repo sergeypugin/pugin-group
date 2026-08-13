@@ -1,4 +1,13 @@
 @media print {
+  :root {
+    --bg-page: #FFFFFF !important;
+    --bg-card: #FFFFFF !important;
+    --text-main: #000000 !important;
+    --text-muted: #334155 !important;
+    --border-color: #CBD5E1 !important;
+    --color-indigo: #3730A3 !important;
+  }
+
   @page {
     size: A4 portrait;
     margin: 12mm 15mm;
@@ -7,7 +16,7 @@
   body {
     padding-top: 0 !important;
     background: var(--color-white) !important;
-    color: var(--color-black-pure) !important;
+    color: var(--color-black) !important;
   }
 
   .header,

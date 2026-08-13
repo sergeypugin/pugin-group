@@ -139,10 +139,10 @@ function exportToDocx() {
   const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   const docxColors = {
-    mainText: getCssVar('--text-main') || '#000000',
-    indigo: getCssVar('--color-indigo') || '#6366F1',
-    muted: getCssVar('--text-muted') || '#475569',
-    border: getCssVar('--border-color') || '#CBD5E1'
+    mainText: '#000000',
+    indigo: '#6366F1',
+    muted: '#475569',
+    border: '#CBD5E1'
   };
 
   let bodyContent = `
