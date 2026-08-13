@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
 
     if (checkbox) {
-      checkbox.checked = isDark;
+      checkbox.checked = !isDark;
       checkbox.addEventListener('change', (e) => {
-        const newDark = e.target.checked;
+        const newDark = !e.target.checked;
         document.documentElement.setAttribute('data-theme', newDark ? 'dark' : 'light');
         localStorage.setItem('theme-preference', newDark ? 'dark' : 'light');
       });

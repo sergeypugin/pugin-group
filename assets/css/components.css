@@ -861,8 +861,11 @@
 }
 
 .text-content {
-  padding: 60px 0 100px;
+  padding-top: 60px;
+  padding-bottom: 100px;
   max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .text-content h1 {
@@ -871,6 +874,7 @@
   font-weight: 800;
   margin-bottom: 32px;
   line-height: 1.25;
+  color: var(--text-main);
 }
 
 .text-content h2 {
@@ -891,4 +895,27 @@
 .text-content ul {
   padding-left: 20px;
   margin-bottom: 16px;
+}
+
+.text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 72px - 280px);
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.text-center h1,
+.text-center p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center p {
+  max-width: 520px;
+  margin-bottom: 28px;
 }
