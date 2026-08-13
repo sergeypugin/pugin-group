@@ -51,11 +51,6 @@
   --color-border-light: #CBD5E1;
   --color-header-bg: var(--color-white);
 
-  --color-indigo: #6366F1;
-  --color-indigo-rgb: 99, 102, 241;
-
-  --color-lime: #DDF365;
-
   /* Направления */
   --color-prosv: #5773a5;
   --color-prosv-rgb: 87, 115, 165;
@@ -73,10 +68,12 @@
   --color-telegram: #00ACEE;
   --color-linkedin: #0072B1;
 
+  /* company-card */
   --color-green: #10B981;
   --color-pdf: #DE312B;
   --color-docx: #0077FF;
 
+  /* cookie-уведомление */
   --cookie-dough-color: #eab789;
   --cookie-stroke-color: #4A2311;
   --cookie-chip-color: #4A2311;
@@ -84,21 +81,30 @@
   --bg-noise: url('../images/background/noise_bg_2.webp');
 
   /* Светлая тема */
+
+  /* 1. Основные цвета*/
   --bg-page: var(--color-milk-bg);
   --bg-card: var(--color-white);
   --text-main: var(--color-charcoal);
   --text-muted: var(--color-text-muted);
   --border-color: var(--color-border-light);
+  /* 2. Акцентные цвета */
+  --color-indigo: #6366F1;
+  --color-indigo-rgb: 99, 102, 241;
+  --color-lime: #DDF365;
 }
 
 /* Заготовка для Тёмной Темы */
 [data-theme="dark"] {
+  /* 1. Основные цвета */
   --bg-page: #0B0F17;
   --bg-card: #151C28;
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
   --border-color: #2E3748;
   --color-header-bg: #151C28;
+  /* 2. Акцентные цвета */
+  /* coming soon! */
 }
 
 *, *::before, *::after {
