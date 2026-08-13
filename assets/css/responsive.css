@@ -68,6 +68,24 @@
     .okved-row { grid-template-columns: 1fr; gap: 4px; }
 }
 
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 28px;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero__title {
+    font-size: 24px;
+  }
+  .section-title {
+    font-size: 24px;
+  }
+}
+
 @media (max-width: 400px) {
   .btn-cta{
     display: none;
@@ -78,11 +96,11 @@
   }
 
   .hero__title {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   .section-title {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   .footer-grid {
