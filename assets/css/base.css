@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'ALS Gorizont';
+  src: url('../fonts/ALSGorizont-BoldExpa.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ALS Gorizont Medium';
+  src: url('../fonts/ALSGorizont-MediumEx.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Golos Text';
+  src: url('../fonts/Golos-Text_Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Golos Text';
+  src: url('../fonts/Golos-Text_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Golos Text';
+  src: url('../fonts/Golos-Text_DemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  /* 1. Основные цвета (светлая тема по умолчанию) */
+  --bg-page: #F4F5F7;
+  --bg-card: var(--color-white);
+  --bg-header: var(--bg-card);
+  --text-main: var(--color-black);
+  --text-muted: #475569;
+  --border-color: #CBD5E1;
+  --color-contrast-rgb: 0, 0, 0;
+
+  /* 2. Акцентные и брендовые цвета (не зависят от темы) */
+  --color-indigo: #6366F1;
+  --color-indigo-rgb: 99, 102, 241;
+  --color-lime: #DDF365;
+
+  /* Направления */
+  --color-prosv: #5773a5;
+  --color-prosv-rgb: 87, 115, 165;
+
+  --color-cleverence: #de312b;
+  --color-cleverence-rgb: 222, 49, 43;
+
+  --color-axentius: #0ad2be;
+  --color-axentius-rgb: 10, 210, 190;
+
+  /* Соцсети и кнопки */
+  --color-yellow-mail: #ff7f4d;
+  --color-vk: #0077FF;
+  --color-max: #4c56e6;
+  --color-telegram: #00ACEE;
+  --color-linkedin: #0072B1;
+
+  /* company-card */
+  --color-green: #10B981;
+  --color-pdf: #DE312B;
+  --color-docx: #0077FF;
+
+  /* cookie-уведомление */
+  --cookie-dough-color: #eab789;
+  --cookie-stroke-color: #4A2311;
+  --cookie-chip-color: #4A2311;
+
+  --bg-noise: url('../images/background/noise_bg_2.webp');
+}
+
+/* Заготовка для Тёмной Темы */
+[data-theme="dark"] {
+  /* 1. Основные цвета для тёмной темы */
+  --bg-page: #0B0F17;
+  --bg-card: #151C28;
+  --bg-header: var(--bg-card);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border-color: #2E3748;
+  --color-contrast-rgb: 0, 0, 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Golos Text', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
+}
+
+body {
+  background-color: var(--bg-page);
+  background-image: var(--bg-noise);
+  background-repeat: repeat;
+  color: var(--text-main);
+  line-height: 1.6;
+  padding-top: 72px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-link {
+  color: var(--color-indigo);
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(var(--color-indigo-rgb), 0.35);
+  padding-bottom: 1px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.text-link:hover {
+  color: var(--text-main);
+  border-bottom-color: var(--text-main);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container--faq {
+  max-width: 1000px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-family: 'ALS Gorizont', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--text-main);
+}
+
+.surface-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 28px;
+}

@@ -56,13 +56,6 @@ const companyData = {
   }
 };
 
-const docxColors = {
-  charcoal: '#0F172A',
-  indigo: '#6366F1',
-  muted: '#475569',
-  border: '#CBD5E1'
-};
-
 function renderCompanyCard() {
   const container = document.getElementById('company-card-body');
   if (!container) return;
@@ -99,14 +92,14 @@ function renderCompanyCard() {
   html += `
     <div class="card-section card-section--okved">
       <h2 class="card-section__title">${companyData.okved.title}</h2>
-      <div class="okved-table">
+      <div class="data-table">
   `;
 
   companyData.okved.items.forEach(item => {
     html += `
-      <div class="okved-row">
-        <div class="okved-code">${item.code}</div>
-        <div class="okved-name">${item.name}</div>
+      <div class="data-row">
+        <div class="data-code">${item.code}</div>
+        <div class="data-name">${item.name}</div>
       </div>
     `;
   });
@@ -138,9 +131,22 @@ function getFormattedCompanyText() {
   return text.trim();
 }
 
+function exportToPdf() {
+  window.print();
+}
+
 function exportToDocx() {
+  const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+  const docxColors = {
+    mainText: getCssVar('--text-main') || '#000000',
+    indigo: getCssVar('--color-indigo') || '#6366F1',
+    muted: getCssVar('--text-muted') || '#475569',
+    border: getCssVar('--border-color') || '#CBD5E1'
+  };
+
   let bodyContent = `
-    <h1 style="font-size:18pt; color:${docxColors.charcoal}; margin-bottom:4pt;">Карточка организации</h1>
+    <h1 style="font-size:18pt; color:${docxColors.mainText}; margin-bottom:4pt;">Карточка организации</h1>
   `;
 
   companyData.sections.forEach(sec => {
@@ -150,7 +156,7 @@ function exportToDocx() {
       bodyContent += `
         <tr>
           <td style="padding:4pt 0; font-size:8.5pt; font-weight:bold; color:${docxColors.muted}; width:200pt; text-transform:uppercase;">${f.label}:</td>
-          <td style="padding:4pt 0; font-size:10.5pt; font-weight:bold; color:${docxColors.charcoal};">${f.value}</td>
+          <td style="padding:4pt 0; font-size:10.5pt; font-weight:bold; color:${docxColors.mainText};">${f.value}</td>
         </tr>
       `;
     });
@@ -162,7 +168,7 @@ function exportToDocx() {
   companyData.okved.items.forEach(item => {
     bodyContent += `
       <tr>
-        <td style="padding:3pt 0; font-size:10pt; font-weight:bold; color:${docxColors.charcoal}; width:70pt;">${item.code}</td>
+        <td style="padding:3pt 0; font-size:10pt; font-weight:bold; color:${docxColors.mainText}; width:70pt;">${item.code}</td>
         <td style="padding:3pt 0; font-size:10pt; color:${docxColors.muted};">${item.name}</td>
       </tr>
     `;
@@ -183,10 +189,6 @@ function exportToDocx() {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-}
-
-function exportToPdf() {
-  window.print();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

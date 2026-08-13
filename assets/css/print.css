@@ -1,0 +1,47 @@
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    padding-top: 0 !important;
+    background: var(--color-white) !important;
+    color: var(--color-black-pure) !important;
+  }
+
+  .header,
+  .footer,
+  .breadcrumbs,
+  .card-actions,
+  #back-to-top-placeholder,
+  #cookie-placeholder {
+    display: none !important;
+  }
+
+  .page-content {
+    padding: 0 !important;
+  }
+
+  .company-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .card-section,
+  .info-group,
+  .okved-row {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .card-section {
+    margin-bottom: 24px !important;
+  }
+
+  .info-group {
+    padding-bottom: 8px !important;
+  }
+}
