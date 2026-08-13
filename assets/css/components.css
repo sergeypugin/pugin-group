@@ -5,9 +5,9 @@
   right: 0;
   z-index: 1000;
   height: 72px;
-  background-color: var(--color-header-bg);
+  background-color: var(--bg-header);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(var(--color-charcoal-rgb), 0.15);
+  box-shadow: 0 4px 20px rgba(var(--color-contrast-rgb), 0.15);
   display: flex;
   align-items: center;
 }
@@ -62,7 +62,7 @@
   align-items: center;
   gap: 0.75rem;
   background-color: var(--color-indigo);
-  color: var(--color-white);
+  color: #FFFFFF;
   border: none;
   border-radius: 50px;
   font-weight: 700;
@@ -80,7 +80,7 @@
   height: 24px;
   position: relative;
   color: var(--color-indigo);
-  background-color: var(--color-white);
+  background-color: #FFFFFF;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -94,12 +94,12 @@
 }
 
 .btn-cta:hover {
-  background-color: var(--color-black-pure);
-  color: var(--color-white);
+  background-color: var(--text-main);
+  color: var(--bg-card);
 }
 .btn-cta:hover .btn-cta__icon {
-  background-color: var(--color-white);
-  color: var(--color-black-pure);
+  background-color: var(--bg-card);
+  color: var(--text-main);
 }
 .btn-cta:hover .icon-svg:first-child {
   transition: transform 0.3s ease-in-out;
@@ -199,7 +199,7 @@
   left: 0.9rem;
   width: 1.1rem;
   height: 2px;
-  background: var(--color-white);
+  background: #FFFFFF;
   transform: translateY(-50%);
 }
 .learn-more-btn .circle .icon.arrow::before {
@@ -209,8 +209,8 @@
   right: 0;
   width: 7px;
   height: 7px;
-  border-top: 2px solid var(--color-white);
-  border-right: 2px solid var(--color-white);
+  border-top: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
   transform: rotate(45deg);
 }
 .learn-more-btn .button-text {
@@ -226,14 +226,14 @@
 }
 .learn-more-btn:hover .circle {
   width: 100%;
-  background: var(--color-black-pure);
+  background: var(--text-main);
 }
 .learn-more-btn:hover .circle .icon.arrow {
-  background: var(--color-white);
+  background: #FFFFFF;
   transform: translate(1rem, -50%);
 }
 .learn-more-btn:hover .button-text {
-  color: var(--color-white);
+  color: var(--bg-card);
 }
 
 .faq__item {
@@ -271,7 +271,7 @@
 .faq__icon::after {
   content: "";
   position: absolute;
-  background-color: var(--color-black-pure);
+  background-color: var(--text-main);
   transition: transform 0.3s ease;
 }
 .faq__icon::before {
@@ -299,7 +299,6 @@
   line-height: 1.7;
 }
 .faq__item.active .faq__body {
-  max-height: 300px;
   padding-top: 16px;
 }
 
@@ -438,12 +437,12 @@
 .back-to-top-btn .svgIcon {
   width: 14px;
   transition: transform 0.3s ease;
-  fill: var(--color-white);
+  fill: #FFFFFF;
 }
 .back-to-top-btn:hover {
   width: 140px;
   border-radius: 50px;
-  background-color: var(--color-black-pure);
+  background-color: var(--text-main);
 }
 .back-to-top-btn:hover .svgIcon {
   transform: translateY(-200%);
@@ -452,7 +451,7 @@
   position: absolute;
   bottom: -20px;
   content: "Наверх ↑";
-  color: var(--color-white);
+  color: var(--bg-card);
   font-size: 0;
   transition: all 0.3s ease;
 }
@@ -476,7 +475,7 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 10px 30px rgba(var(--color-charcoal-rgb), 0.15);
+  box-shadow: 0 10px 30px rgba(var(--color-contrast-rgb), 0.15);
 }
 
 .cookie-svg {
@@ -545,7 +544,7 @@
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(var(--color-charcoal-rgb), 0.12);
+  box-shadow: 0 4px 12px rgba(var(--color-contrast-rgb), 0.12);
 }
 
 .Btn--pdf {
@@ -559,7 +558,7 @@
 }
 
 .Btn .svgIcon {
-  fill: var(--color-white);
+  fill: #FFFFFF;
   width: 16px;
   height: 16px;
   transition: fill 0.3s ease;
@@ -568,14 +567,14 @@
 .Btn .icon2 {
   width: 18px;
   height: 5px;
-  border-bottom: 2px solid var(--color-white);
-  border-left: 2px solid var(--color-white);
-  border-right: 2px solid var(--color-white);
+  border-bottom: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
   transition: border-color 0.3s ease;
 }
 
 .Btn:hover {
-  background-color: var(--color-black-pure);
+  background-color: var(--text-main);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
@@ -612,8 +611,8 @@
   transform: translateX(-50%) translateY(4px);
   opacity: 0;
   visibility: hidden;
-  background-color: var(--color-black-pure);
-  color: var(--color-white);
+  background-color: var(--text-main);
+  color: var(--bg-card);
   padding: 4px 8px;
   border-radius: 5px;
   display: flex;
@@ -633,7 +632,7 @@
   content: "";
   width: 6px;
   height: 6px;
-  background-color: var(--color-black-pure);
+  background-color: var(--text-main);
   transform: rotate(45deg);
   top: -3px;
   left: 50%;
@@ -663,6 +662,7 @@
   padding-top: 32px;
   padding-bottom: 80px;
 }
+
 /* Хлебные крошки с использованием ::after */
 .breadcrumbs {
   display: flex;

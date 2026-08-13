@@ -39,17 +39,19 @@
 }
 
 :root {
-  /* Абсолютная палитра */
-  --color-black-pure: #000000;
-  --color-charcoal: #0F172A;
-  --color-charcoal-rgb: 15, 23, 42;
+  /* 1. Основные цвета (светлая тема по умолчанию) */
+  --bg-page: #F4F5F7;
+  --bg-card: #FFFFFF;
+  --bg-header: var(--bg-card);
+  --text-main: #000000;
+  --text-muted: #475569;
+  --border-color: #CBD5E1;
+  --color-contrast-rgb: 0, 0, 0;
 
-  --color-text-muted: #475569;
-  --color-white: #FFFFFF;
-  --color-milk-bg: #F4F5F7;
-
-  --color-border-light: #CBD5E1;
-  --color-header-bg: var(--color-white);
+  /* 2. Акцентные и брендовые цвета (не зависят от темы) */
+  --color-indigo: #6366F1;
+  --color-indigo-rgb: 99, 102, 241;
+  --color-lime: #DDF365;
 
   /* Направления */
   --color-prosv: #5773a5;
@@ -79,32 +81,18 @@
   --cookie-chip-color: #4A2311;
 
   --bg-noise: url('../images/background/noise_bg_2.webp');
-
-  /* Светлая тема */
-
-  /* 1. Основные цвета*/
-  --bg-page: var(--color-milk-bg);
-  --bg-card: var(--color-white);
-  --text-main: var(--color-charcoal);
-  --text-muted: var(--color-text-muted);
-  --border-color: var(--color-border-light);
-  /* 2. Акцентные цвета */
-  --color-indigo: #6366F1;
-  --color-indigo-rgb: 99, 102, 241;
-  --color-lime: #DDF365;
 }
 
 /* Заготовка для Тёмной Темы */
 [data-theme="dark"] {
-  /* 1. Основные цвета */
+  /* 1. Основные цвета для тёмной темы */
   --bg-page: #0B0F17;
   --bg-card: #151C28;
+  --bg-header: var(--bg-card);
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
   --border-color: #2E3748;
-  --color-header-bg: #151C28;
-  /* 2. Акцентные цвета */
-  /* coming soon! */
+  --color-contrast-rgb: 0, 0, 0;
 }
 
 *, *::before, *::after {
@@ -128,7 +116,10 @@ body {
   padding-top: 72px;
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .text-link {
   color: var(--color-indigo);
@@ -140,14 +131,23 @@ a { text-decoration: none; color: inherit; }
 }
 
 .text-link:hover {
-  color: var(--color-charcoal);
-  border-bottom-color: var(--color-charcoal);
+  color: var(--text-main);
+  border-bottom-color: var(--text-main);
 }
 
-.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-.container--faq { max-width: 1000px; }
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-.section { padding: 80px 0; }
+.container--faq {
+  max-width: 1000px;
+}
+
+.section {
+  padding: 80px 0;
+}
 
 .section-title {
   font-family: 'ALS Gorizont', sans-serif;

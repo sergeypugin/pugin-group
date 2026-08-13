@@ -139,14 +139,14 @@ function exportToDocx() {
   const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   const docxColors = {
-    charcoal: getCssVar('--color-charcoal'),
-    indigo: getCssVar('--color-indigo'),
-    muted: getCssVar('--color-text-muted'),
-    border: getCssVar('--color-border-light')
+    mainText: getCssVar('--text-main') || '#000000',
+    indigo: getCssVar('--color-indigo') || '#6366F1',
+    muted: getCssVar('--text-muted') || '#475569',
+    border: getCssVar('--border-color') || '#CBD5E1'
   };
 
   let bodyContent = `
-    <h1 style="font-size:18pt; color:${docxColors.charcoal}; margin-bottom:4pt;">Карточка организации</h1>
+    <h1 style="font-size:18pt; color:${docxColors.mainText}; margin-bottom:4pt;">Карточка организации</h1>
   `;
 
   companyData.sections.forEach(sec => {
@@ -156,7 +156,7 @@ function exportToDocx() {
       bodyContent += `
         <tr>
           <td style="padding:4pt 0; font-size:8.5pt; font-weight:bold; color:${docxColors.muted}; width:200pt; text-transform:uppercase;">${f.label}:</td>
-          <td style="padding:4pt 0; font-size:10.5pt; font-weight:bold; color:${docxColors.charcoal};">${f.value}</td>
+          <td style="padding:4pt 0; font-size:10.5pt; font-weight:bold; color:${docxColors.mainText};">${f.value}</td>
         </tr>
       `;
     });
@@ -168,7 +168,7 @@ function exportToDocx() {
   companyData.okved.items.forEach(item => {
     bodyContent += `
       <tr>
-        <td style="padding:3pt 0; font-size:10pt; font-weight:bold; color:${docxColors.charcoal}; width:70pt;">${item.code}</td>
+        <td style="padding:3pt 0; font-size:10pt; font-weight:bold; color:${docxColors.mainText}; width:70pt;">${item.code}</td>
         <td style="padding:3pt 0; font-size:10pt; color:${docxColors.muted};">${item.name}</td>
       </tr>
     `;
