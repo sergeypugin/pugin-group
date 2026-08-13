@@ -823,7 +823,7 @@
 }
 
 .switch input:checked + .slider {
-  background-color: var(--color-indigo);
+  background-color: #00A3E0;
 }
 
 .switch input:checked + .slider:before {

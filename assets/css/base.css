@@ -50,7 +50,7 @@
   --border-color: #CBD5E1;
   --color-contrast-rgb: 0, 0, 0;
 
-  /* 2. Акцентные и брендовые цвета (не зависят от темы) */
+  /* 2. Акцентные и брендовые цвета */
   --color-indigo: #6366F1;
   --color-indigo-rgb: 99, 102, 241;
   --color-lime: #DDF365;
@@ -88,13 +88,17 @@
 /* Заготовка для Тёмной Темы */
 [data-theme="dark"] {
   /* 1. Основные цвета для тёмной темы */
-  --bg-page: #0B0F17;
-  --bg-card: #151C28;
+  --bg-page: #222222;
+  --bg-card: #272727;
   --bg-header: var(--bg-card);
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
   --border-color: #2E3748;
   --color-contrast-rgb: 0, 0, 0;
+  /* 2. Акцентные и брендовые цвета */
+  --color-indigo: #A997FF;
+  --color-indigo-rgb: 169, 151, 255;
+  --color-lime: #DDF365;
 }
 
 *, *::before, *::after {
