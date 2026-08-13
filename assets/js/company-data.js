@@ -92,14 +92,14 @@ function renderCompanyCard() {
   html += `
     <div class="card-section card-section--okved">
       <h2 class="card-section__title">${companyData.okved.title}</h2>
-      <div class="okved-table">
+      <div class="data-table">
   `;
 
   companyData.okved.items.forEach(item => {
     html += `
-      <div class="okved-row">
-        <div class="okved-code">${item.code}</div>
-        <div class="okved-name">${item.name}</div>
+      <div class="data-row">
+        <div class="data-code">${item.code}</div>
+        <div class="data-name">${item.name}</div>
       </div>
     `;
   });

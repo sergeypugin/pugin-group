@@ -1,22 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Авто-загрузка компонент (хедер, футер, кнопка неверх)
-  const loadComponent = (id, path) => {
-    const el = document.getElementById(id);
-    if (el) {
-      fetch(path)
-        .then(res => res.text())
-        .then(html => { el.innerHTML = html; })
-        .catch(err => console.error('Ошибка загрузки ' + path, err));
+  // 1. Автоматическое управление переключателем темы
+  const initThemeManager = () => {
+    const checkbox = document.getElementById('theme-toggle-checkbox');
+    const savedTheme = localStorage.getItem('theme-preference');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Определяем тему: из памяти или из настроек ОС
+    let isDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+
+    if (checkbox) {
+      checkbox.checked = isDark;
+      checkbox.addEventListener('change', (e) => {
+        const newDark = e.target.checked;
+        document.documentElement.setAttribute('data-theme', newDark ? 'dark' : 'light');
+        localStorage.setItem('theme-preference', newDark ? 'dark' : 'light');
+      });
     }
   };
 
-  loadComponent('header-placeholder', 'components/header.html');
-  loadComponent('footer-placeholder', 'components/footer.html');
-  loadComponent('back-to-top-placeholder', 'components/back-to-top.html');
-  loadComponent('cookie-placeholder', 'components/cookie-banner.html');
+  // 2. Автоматическое добавление тегов и загрузка компонентов
+  const loadComponent = (id, path, position = 'beforeend') => {
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement('div');
+      el.id = id;
+      if (position === 'afterbegin') {
+        document.body.prepend(el);
+      } else {
+        document.body.appendChild(el);
+      }
+    }
 
-  // 2. FAQ
+    fetch(path)
+      .then(res => res.text())
+      .then(html => {
+        el.innerHTML = html;
+        if (id === 'header-placeholder') {
+          initThemeManager();
+        }
+      })
+      .catch(err => console.error('Ошибка загрузки ' + path, err));
+  };
+
+  loadComponent('header-placeholder', 'components/header.html', 'afterbegin');
+  loadComponent('footer-placeholder', 'components/footer.html', 'beforeend');
+  loadComponent('back-to-top-placeholder', 'components/back-to-top.html', 'beforeend');
+  loadComponent('cookie-placeholder', 'components/cookie-banner.html', 'beforeend');
+
+  // 3. FAQ
   document.addEventListener('click', (e) => {
     const header = e.target.closest('.faq__header');
     if (!header) return;
@@ -31,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Кнопка возврата наверх
+  // 4. Кнопка возврата наверх
   window.addEventListener('scroll', () => {
     const backToTopBtn = document.getElementById('back-to-top');
-      if (!backToTopBtn) return;
+    if (!backToTopBtn) return;
     if (window.scrollY > 300) {
       backToTopBtn.classList.add('visible');
     } else {
@@ -44,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('#back-to-top');
-      if (btn) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    if (btn) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   });
 
 });

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инспектор шрифтов</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            width: fit-content;
+        }
+
+        .file-upload-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        input[type="text"] {
+            background-color: #0f172a;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .font-name {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            width: 30%;
+            vertical-align: middle;
+        }
+
+        .font-preview {
+            font-size: 1.35rem;
+            width: 70%;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+        
+        .placeholder {
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Тестирование шрифтов</h1>
+        <p class="description">Загрузите файлы шрифтов (поддерживаются .woff, .woff2, .ttf), чтобы сравнить их отображение.</p>
+
+        <div class="controls">
+            <div class="input-group">
+                <label>Загрузка шрифтов</label>
+                <label for="fontInput" class="file-upload-btn">Выбрать файлы шрифтов</label>
+                <input type="file" id="fontInput" accept=".woff, .woff2, .ttf, .otf" multiple>
+            </div>
+
+            <div class="input-group">
+                <label for="sampleText">Текст для проверки:</label>
+                <input type="text" id="sampleText" value="Съешь ещё этих мягких французских булок, да выпей же чаю. 1234567890! The quick brown fox jumps over the lazy dog?">
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название шрифта</th>
+                        <th>Предложение в этом шрифте</th>
+                    </tr>
+                </thead>
+                <tbody id="fontTableBody">
+                    <tr>
+                        <td colspan="2" class="placeholder">Шрифты пока не загружены. Выберите файлы выше.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const fontInput = document.getElementById('fontInput');
+        const sampleTextInput = document.getElementById('sampleText');
+        const fontTableBody = document.getElementById('fontTableBody');
+
+        let isFirstLoad = true;
+
+        // Интерактивное обновление текста во всех строках таблицы при вводе
+        sampleTextInput.addEventListener('input', (e) => {
+            const text = e.target.value;
+            document.querySelectorAll('.font-preview').forEach(el => {
+                if (!el.classList.contains('placeholder')) {
+                    el.textContent = text;
+                }
+            });
+        });
+
+        fontInput.addEventListener('change', async (event) => {
+            const files = event.target.files;
+            if (!files.length) return;
+
+            if (isFirstLoad) {
+                fontTableBody.innerHTML = '';
+                isFirstLoad = false;
+            }
+
+            for (const file of files) {
+                try {
+                    const arrayBuffer = await file.arrayBuffer();
+                    
+                    // Генерируем уникальное имя для семейства шрифта, чтобы браузер не путал файлы
+                    const cleanName = file.name.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "_");
+                    const uniqueFamilyName = `CustomFont_${cleanName}_${Math.random().toString(36).substring(2, 7)}`;
+
+                    // Используем современный API FontFace
+                    const fontFace = new FontFace(uniqueFamilyName, arrayBuffer);
+                    await fontFace.load();
+                    document.fonts.add(fontFace);
+
+                    // Создаем строку таблицы
+                    const row = document.createElement('tr');
+                    
+                    const nameCell = document.createElement('td');
+                    nameCell.className = 'font-name';
+                    nameCell.textContent = file.name;
+
+                    const previewCell = document.createElement('td');
+                    previewCell.className = 'font-preview';
+                    previewCell.style.fontFamily = `'${uniqueFamilyName}', sans-serif`;
+                    previewCell.textContent = sampleTextInput.value;
+
+                    row.appendChild(nameCell);
+                    row.appendChild(previewCell);
+                    fontTableBody.appendChild(row);
+
+                } catch (err) {
+                    console.error(`Ошибка загрузки шрифта ${file.name}:`, err);
+                    alert(`Не удалось загрузить файл: ${file.name}. Возможно, он поврежден.`);
+                }
+            }
+
+            // Очищаем инпут, чтобы можно было загрузить тот же файл повторно при необходимости
+            fontInput.value = '';
+        });
+    </script>
+</body>
+</html>
