@@ -381,7 +381,12 @@
   width: 22px;
   height: 22px;
   object-fit: contain;
+  filter: brightness(0);
   transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="dark"] .social-img {
+  filter: brightness(0) invert(1);
 }
 
 .container-mail:hover {
@@ -406,8 +411,11 @@
 }
 
 .social-container:hover .social-img {
-  filter: brightness(0) invert(1);
   transform: scale(1.1);
+}
+
+[data-theme="light"] .social-container:hover .social-img {
+  filter: brightness(0) invert(1);
 }
 
 .back-to-top-btn {
@@ -438,6 +446,7 @@
   width: 14px;
   transition: transform 0.3s ease;
   fill: var(--bg-card);
+
 }
 .back-to-top-btn:hover {
   width: 140px;
