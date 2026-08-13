@@ -62,7 +62,7 @@
   align-items: center;
   gap: 0.75rem;
   background-color: var(--color-indigo);
-  color: #FFFFFF;
+  color: var(--bg-card);
   border: none;
   border-radius: 50px;
   font-weight: 700;
@@ -80,7 +80,7 @@
   height: 24px;
   position: relative;
   color: var(--color-indigo);
-  background-color: #FFFFFF;
+  background-color: var(--bg-card);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -199,7 +199,7 @@
   left: 0.9rem;
   width: 1.1rem;
   height: 2px;
-  background: #FFFFFF;
+  background: var(--bg-card);
   transform: translateY(-50%);
 }
 .learn-more-btn .circle .icon.arrow::before {
@@ -209,8 +209,8 @@
   right: 0;
   width: 7px;
   height: 7px;
-  border-top: 2px solid #FFFFFF;
-  border-right: 2px solid #FFFFFF;
+  border-top: 2px solid var(--bg-card);
+  border-right: 2px solid var(--bg-card);
   transform: rotate(45deg);
 }
 .learn-more-btn .button-text {
@@ -229,7 +229,7 @@
   background: var(--text-main);
 }
 .learn-more-btn:hover .circle .icon.arrow {
-  background: #FFFFFF;
+  background: var(--bg-card);
   transform: translate(1rem, -50%);
 }
 .learn-more-btn:hover .button-text {
@@ -419,7 +419,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(var(--color-contrast-rgb), 0.15);
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -437,7 +437,7 @@
 .back-to-top-btn .svgIcon {
   width: 14px;
   transition: transform 0.3s ease;
-  fill: #FFFFFF;
+  fill: var(--bg-card);
 }
 .back-to-top-btn:hover {
   width: 140px;
@@ -525,7 +525,7 @@
   color: var(--cookie-dough-color);
 }
 
-/* Всё для company-card.html*/
+/* Кнопки действий на странице реквизитов */
 .card-actions {
   display: flex;
   gap: 16px;
@@ -558,7 +558,7 @@
 }
 
 .Btn .svgIcon {
-  fill: #FFFFFF;
+  fill: var(--bg-card);
   width: 16px;
   height: 16px;
   transition: fill 0.3s ease;
@@ -567,16 +567,16 @@
 .Btn .icon2 {
   width: 18px;
   height: 5px;
-  border-bottom: 2px solid #FFFFFF;
-  border-left: 2px solid #FFFFFF;
-  border-right: 2px solid #FFFFFF;
+  border-bottom: 2px solid var(--bg-card);
+  border-left: 2px solid var(--bg-card);
+  border-right: 2px solid var(--bg-card);
   transition: border-color 0.3s ease;
 }
 
 .Btn:hover {
   background-color: var(--text-main);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 16px rgba(var(--color-contrast-rgb), 0.25);
 }
 
 .Btn--pdf:hover .svgIcon {
@@ -776,7 +776,7 @@
   width: 4em;
   height: 2.2em;
   border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(var(--color-contrast-rgb), 0.1);
   flex-shrink: 0;
 }
 
@@ -793,7 +793,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2a2a2a;
+  background-color: var(--border-color);
   transition: 0.4s;
   border-radius: 30px;
   overflow: hidden;
@@ -809,20 +809,20 @@
   bottom: 0.5em;
   transition: 0.4s;
   transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
-  box-shadow: inset 8px -4px 0px 0px #fff;
+  box-shadow: inset 8px -4px 0px 0px var(--bg-card);
 }
 
 .switch input:checked + .slider {
-  background-color: #00a6ff;
+  background-color: var(--color-indigo);
 }
 
 .switch input:checked + .slider:before {
   transform: translateX(1.8em);
-  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+  box-shadow: inset 15px -4px 0px 15px #FFCF48;
 }
 
 .star {
-  background-color: #fff;
+  background-color: var(--bg-card);
   border-radius: 50%;
   position: absolute;
   width: 4px;

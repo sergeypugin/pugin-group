@@ -39,11 +39,13 @@
 }
 
 :root {
+  --color-white: #FFFFFF;
+  --color-black: #000000;
   /* 1. Основные цвета (светлая тема по умолчанию) */
   --bg-page: #F4F5F7;
-  --bg-card: #FFFFFF;
+  --bg-card: var(--color-white);
   --bg-header: var(--bg-card);
-  --text-main: #000000;
+  --text-main: var(--color-black);
   --text-muted: #475569;
   --border-color: #CBD5E1;
   --color-contrast-rgb: 0, 0, 0;
