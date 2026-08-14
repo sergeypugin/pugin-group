@@ -1,0 +1,221 @@
+:root {
+  --train-sky: transparent;
+  --train-sea-top: transparent;
+  --train-sea-bottom: #cbe3f5;
+  --train-land: #ffffff;
+  --train-hills: #eaf3fa;
+  --train-cloud-bg: #ffffff;
+  --train-cloud-border: #b6d7f0;
+  --train-rail: #7892ad;
+  --train-sleeper: #5a738e;
+  --train-chassis: #c5dcf0;
+  --train-wheel-outer: #ffffff;
+  --train-wheel-rim: #5a738e;
+  --train-wheel-hub: #5a738e;
+  --train-body-bg: #ffffff;
+  --train-body-stroke: #6682a0;
+  --train-accent-line: #6682a0;
+  --train-text: #3b536e;
+}
+
+[data-theme="dark"] {
+  --train-sky: transparent;
+  --train-sea-top: transparent;
+  --train-sea-bottom: #38bdf81f;
+  --train-land: #ffffff0a;
+  --train-hills: #ffffff0f;
+  --train-cloud-bg: #ffffff0d;
+  --train-cloud-border: #7dd3fc40;
+  --train-rail: #52525b;
+  --train-sleeper: #3f3f46;
+  --train-chassis: #18181b;
+  --train-wheel-outer: #1e222d;
+  --train-wheel-rim: #38bdf8;
+  --train-wheel-hub: #38bdf8;
+  --train-body-bg: #1e222d;
+  --train-body-stroke: #7dd3fc;
+  --train-accent-line: #38bdf8;
+  --train-text: #f0f9ff;
+}
+
+.error-page {
+  min-height: calc(100vh - 72px - 260px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.error-desc {
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 500;
+  max-width: 520px;
+  margin: 12px auto 28px;
+  line-height: 1.6;
+}
+
+/* Компактный размер и мягкое растворение краев по бокам и снизу */
+.train-wrapper {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 12px;
+  position: relative;
+
+  /* Размытие горизонта по бокам И СНИЗУ */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.not_found_svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   ЭЛЕМЕНТЫ ВЕКТОРНОЙ ГРАФИКИ
+   -------------------------------------------------------------------------- */
+
+#not_found_sky {
+  fill: var(--train-sky);
+}
+
+.grad-stop-1 {
+  stop-color: var(--train-sea-top);
+}
+.grad-stop-2 {
+  stop-color: var(--train-sea-bottom);
+}
+
+.train_land {
+  fill: var(--train-land);
+}
+
+.train_hills {
+  fill: var(--train-hills);
+}
+
+.train_cloud {
+  fill: var(--train-cloud-bg);
+  stroke: var(--train-cloud-border);
+  stroke-miterlimit: 10;
+}
+
+.train_sleepers path {
+  fill: var(--train-sleeper);
+}
+
+.train_rail {
+  fill: var(--train-rail);
+}
+
+.train_bottom_plate {
+  fill: var(--train-chassis);
+}
+
+.train_wheel_outer {
+  fill: var(--train-wheel-outer);
+  stroke: var(--train-wheel-rim);
+  stroke-width: 2;
+}
+
+.train_wheel_inner {
+  fill: var(--train-wheel-hub);
+}
+
+.train_brace {
+  stroke: var(--train-wheel-rim);
+  stroke-width: 5;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.train_body_main,
+.train_streamline {
+  fill: var(--train-body-bg);
+  stroke: var(--train-body-stroke);
+  stroke-width: 1.6;
+  stroke-miterlimit: 10;
+}
+
+.train_line {
+  fill: none;
+  stroke: var(--train-accent-line);
+  stroke-width: 1.5;
+  stroke-miterlimit: 10;
+}
+
+.train_text_svg {
+  fill: var(--train-text);
+  font-family: 'Golos Text', sans-serif;
+  letter-spacing: 0.5px;
+  stroke: none !important;
+}
+
+.train_text_num {
+  font-weight: 800;
+}
+
+.train_text_label {
+  font-weight: 700;
+  font-size: 19px;
+}
+
+/* --------------------------------------------------------------------------
+   ПЛАВНЫЕ АНИМАЦИИ ДВИЖЕНИЯ
+   -------------------------------------------------------------------------- */
+
+#not_found_cloud1 { animation: not_found_cloud003 15s linear infinite; }
+#not_found_cloud2 { animation: not_found_cloud002 25s linear infinite; }
+#not_found_cloud3 { animation: not_found_cloud003 20s linear infinite; }
+#not_found_cloud4 { animation: not_found_float 4s linear infinite; }
+
+#not_found_tracks { animation: not_found_slide 650ms linear infinite; }
+#not_found_bumps { animation: not_found_land 10000ms linear infinite; }
+#not_found_car-layers { animation: not_found_jig 0.35s linear infinite; }
+#not_found_bracefront, #not_found_braceback { animation: not_found_braces 1s linear infinite; }
+
+@keyframes not_found_jig {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1.5px); }
+}
+
+@keyframes not_found_land {
+  from { transform: translateX(0); }
+  to { transform: translateX(1000px); }
+}
+
+@keyframes not_found_slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+@keyframes not_found_cloud002 {
+  0% { transform: translateX(-1000px) translateY(3px); }
+  100% { transform: translateX(1000px) translateY(0); }
+}
+
+@keyframes not_found_cloud003 {
+  0% { transform: translateX(-1000px) translateY(3px); }
+  100% { transform: translateX(1000px) translateY(0); }
+}
+
+@keyframes not_found_float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(8px) translateX(5px); }
+}
+
+@keyframes not_found_braces {
+  0%, 50%, 100% { transform: translateX(-2px); }
+  25%, 75% { transform: translateX(3px); }
+}
