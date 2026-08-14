@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // 0. Автоматическое подключение SVG-логотипа во все страницы
+  const initFavicon = (path = 'assets/images/favicon.svg') => {
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.type = 'image/svg+xml';
+    link.href = path;
+  };
+
+  initFavicon(); // Запускаем установку иконки
+
   // 1. Автоматическое управление переключателем темы
   const initThemeManager = () => {
     const checkbox = document.getElementById('theme-toggle-checkbox');

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <defs>
+        <linearGradient id="puginGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6366F1" />
+            <stop offset="100%" stop-color="#A997FF" />
+        </linearGradient>
+    </defs>
+    <rect width="512" height="512" rx="128" fill="url(#puginGrad)" />
+    <path d="M136 121 H376 V391 H311 V186 H201 V391 H136 Z" fill="#FFFFFF" />
+</svg>
