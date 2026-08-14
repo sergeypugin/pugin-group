@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // 0. Автоматическое подключение SVG-логотипа во все страницы
-  const initFavicon = (path = 'assets/images/favicon.svg') => {
+  const initFavicon = (path = 'assets/images/logos/main-logo.svg') => {
     let link = document.querySelector("link[rel~='icon']");
     if (!link) {
       link = document.createElement('link');
