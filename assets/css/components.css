@@ -299,6 +299,7 @@
   line-height: 1.7;
 }
 .faq__item.active .faq__body {
+  max-height: 1000px;
   padding-top: 16px;
 }
 
