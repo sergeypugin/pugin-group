@@ -13,7 +13,7 @@
 - 420 руб. за продление уже существующего домена на год
 
 Ниже описано, как опубликовать сайт с выбором [Yandex Cloud](https://yandex.cloud/ru) для хостинга и [beget.com/domains](https://beget.com/ru/domains) для получения кастомного домена:
-1. [yandex.cloud хостинг](#yandex.cloud-хостинг)
+1. [yandex.cloud хостинг](#yandex-cloud-хостинг)
 2. [Подключение кастомного домена в Yandex Cloud](#подключение-кастомного-домена-в-Yandex-Cloud)
 
 # Yandex Cloud хостинг
