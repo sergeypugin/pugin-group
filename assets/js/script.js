@@ -100,11 +100,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 5. Кнопка возврата наверх
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('#back-to-top');
     if (btn) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  });
+
+  // Переключение разделов в prosv-faq.html
+  document.addEventListener('click', (e) => {
+    const tab = e.target.closest('.role-tab');
+    if (!tab) return;
+
+    const targetId = tab.dataset.target;
+    if (!targetId) return;
+
+    // Убираем active со всех табов и секций
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.role-section').forEach(s => s.classList.remove('active'));
+
+    // Включаем active на нажатый таб и его секцию
+    tab.classList.add('active');
+    document.getElementById(targetId)?.classList.add('active');
   });
 
 });

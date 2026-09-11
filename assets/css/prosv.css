@@ -55,6 +55,73 @@
   margin-bottom: 0 !important;
 }
 
+/* Контейнер для кнопок переключения */
+.role-tabs {
+  display: inline-flex;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 4px;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+/* Сами кнопки переключения */
+.role-tab {
+  background: none;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.role-tab:hover {
+  color: var(--text-main);
+}
+
+.role-tab.active {
+  background-color: var(--color-indigo);
+  color: var(--color-white);
+}
+
+/* Скрытие неактивного раздела */
+.role-section {
+  display: none;
+}
+
+/* Показ активного раздела */
+.role-section.active {
+  display: block;
+}
+
+/* Оформление заголовков разделов */
+.role-section__badge {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-indigo);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.role-section__title {
+  font-family: 'ALS Gorizont', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 6px 0;
+}
+
+.role-section__desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 24px 0;
+}
+
 /* Стилизация фирменной кнопки Просвещения */
 .Btn--prosv {
   background-color: var(--color-prosv);
