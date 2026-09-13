@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="assets/js/viewport.js"></script>
-    <meta name="description" content="Карточка организации и реквизиты ИП Пугина Евгения Александровича (ИНН 780516889552, ОГРНИП 326784700234590). Доступно скачивание в PDF и DOCX.">
-    <title>Карточка организации | ИП Евгений Пугин</title>
-    <link rel="icon" href="assets/images/logos/main-logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/pages.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/print.css" media="print">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="assets/js/viewport.js"></script>
+  <meta name="description" content="Карточка организации и реквизиты ИП Пугина Евгения Александровича (ИНН 780516889552, ОГРНИП 326784700234590). Доступно скачивание в PDF и DOCX.">
+  <title>Карточка организации | ИП Евгений Пугин</title>
+  <link rel="icon" href="assets/images/logos/main-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/print.css" media="print">
 </head>
+
 <body>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/company-data.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/company-data.js"></script>
 
 
-<main class="container page-content">
+  <main class="container page-content">
     <nav class="breadcrumbs">
-        <a href="index.html">Главная</a>
-        <span class="breadcrumbs__current">Карточка организации</span>
+      <a href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Карточка организации</span>
     </nav>
 
     <div class="company-card surface-card">
-        <div class="company-card__header">
-            <div>
-                <h1 class="company-card__title">Карточка организации</h1>
-            </div>
-            <div class="card-actions">
-                <button class="Btn Btn--pdf" id="btn-export-pdf" type="button" aria-label="Скачать PDF">
-                    <svg class="svgIcon" viewBox="0 0 384 512"><use href="#icon-download"></use></svg>
-                    <span class="icon2"></span>
-                    <span class="tooltip">PDF</span>
-                </button>
-
-                <button class="Btn Btn--docx" id="btn-export-docx" type="button" aria-label="Скачать DOCX">
-                    <svg class="svgIcon" viewBox="0 0 384 512"><use href="#icon-download"></use></svg>
-                    <span class="icon2"></span>
-                    <span class="tooltip">DOCX</span>
-                </button>
-
-                <button class="Btn Btn--copy" id="btn-copy-data" type="button" aria-label="Скопировать">
-                    <svg class="svgIcon" viewBox="0 0 448 512"><use href="#icon-copy"></use></svg>
-                    <span class="icon2"></span>
-                    <span class="tooltip" id="copy-tooltip">Скопировать</span>
-                </button>
-            </div>
+      <div class="company-card__header">
+        <div>
+          <h1 class="company-card__title">Карточка организации</h1>
         </div>
+        <div class="card-actions">
+          <button class="Btn Btn--pdf" id="btn-export-pdf" type="button" aria-label="Скачать PDF">
+            <svg class="svgIcon" viewBox="0 0 384 512">
+              <use href="#icon-download"></use>
+            </svg>
+            <span class="icon2"></span>
+            <span class="tooltip">PDF</span>
+          </button>
 
-        <div id="company-card-body"></div>
+          <button class="Btn Btn--docx" id="btn-export-docx" type="button" aria-label="Скачать DOCX">
+            <svg class="svgIcon" viewBox="0 0 384 512">
+              <use href="#icon-download"></use>
+            </svg>
+            <span class="icon2"></span>
+            <span class="tooltip">DOCX</span>
+          </button>
+
+          <button class="Btn Btn--copy" id="btn-copy-data" type="button" aria-label="Скопировать">
+            <svg class="svgIcon" viewBox="0 0 448 512">
+              <use href="#icon-copy"></use>
+            </svg>
+            <span class="icon2"></span>
+            <span class="tooltip" id="copy-tooltip">Скопировать</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="company-card-body"></div>
     </div>
-</main>
+  </main>
 
 
 </body>
+
 </html>

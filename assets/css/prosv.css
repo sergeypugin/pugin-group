@@ -7,7 +7,8 @@
 .prosv-logo {
   width: 320px;
   height: 200px;
-  background-color: var(--text-main); /* color-white in the light theme, same as topics*/
+  background-color: var(--text-main);
+  /* color-white in the light theme, same as topics*/
   -webkit-mask-image: url('../images/logos/prosv_academy.svg');
   mask-image: url('../images/logos/prosv_academy.svg');
   -webkit-mask-size: contain;
@@ -23,6 +24,7 @@
 [data-theme="light"] .prosv-logo {
   background-color: var(--color-prosv);
 }
+
 .prosv-showcase {
   margin: 40px 0;
   display: flex;
@@ -126,19 +128,24 @@
 .Btn--prosv {
   background-color: var(--color-prosv);
 }
+
 .Btn--prosv .svgIcon {
   fill: #FFFFFF;
 }
+
 .Btn--prosv .icon2 {
   border-color: #FFFFFF;
 }
+
 .Btn--prosv:hover {
   background-color: var(--text-main);
 }
+
 .Btn--prosv:hover .svgIcon {
   fill: var(--color-prosv);
   animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+
 .Btn--prosv:hover .icon2 {
   border-color: var(--color-prosv);
 }

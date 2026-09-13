@@ -1,4 +1,4 @@
-(function () {
+(function() {
   const minWidth = 350;
   // Берём реальную ширину окна устройства
   const screenWidth = screen.width < window.innerWidth ? screen.width : window.innerWidth;
