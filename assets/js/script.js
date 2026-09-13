@@ -1,4 +1,4 @@
-// -1. Инициализация Яндекс.Метрики
+// 0. Инициализация Яндекс.Метрики
 (function (m, e, t, r, i, k, a) {
     m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
@@ -10,19 +10,6 @@ ym(111850310, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 0. Автоматическое подключение SVG-логотипа во все страницы
-  const initFavicon = (path = 'assets/images/logos/main-logo.svg') => {
-    let link = document.querySelector("link[rel~='icon']");
-    if (!link) {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      document.head.appendChild(link);
-    }
-    link.type = 'image/svg+xml';
-    link.href = path;
-  };
-
-  initFavicon(); // Запускаем установку иконки
 
   // 1. Автоматическое управление переключателем темы
   const initThemeManager = () => {
