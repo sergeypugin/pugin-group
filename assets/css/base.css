@@ -120,6 +120,7 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   padding-top: 72px;
+  min-width: 350px;
 }
 
 a {
