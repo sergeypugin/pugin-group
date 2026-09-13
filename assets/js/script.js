@@ -1,12 +1,27 @@
 // 0. Инициализация Яндекс.Метрики
-(function (m, e, t, r, i, k, a) {
-  m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+(function(m, e, t, r, i, k, a) {
+  m[i] = m[i] || function() {
+    (m[i].a = m[i].a || []).push(arguments)
+  };
   m[i].l = 1 * new Date();
-  for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+  for (var j = 0; j < document.scripts.length; j++) {
+    if (document.scripts[j].src === r) {
+      return;
+    }
+  }
   k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
 })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=111850310', 'ym');
 
-ym(111850310, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+ym(111850310, 'init', {
+  ssr: true,
+  webvisor: true,
+  clickmap: true,
+  ecommerce: "dataLayer",
+  referrer: document.referrer,
+  url: location.href,
+  accurateTrackBounce: true,
+  trackLinks: true
+});
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -91,7 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('#back-to-top');
     if (btn) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
   });
 
