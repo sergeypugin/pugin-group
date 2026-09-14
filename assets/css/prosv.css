@@ -261,6 +261,15 @@
   display: none;
 }
 
+/* Компактный размер вопросов для FAQ Просвещения */
+.role-section .faq__item {
+  padding: 16px 0;
+}
+
+.role-section .faq__header {
+  font-size: 17px;
+}
+
 @media (max-width: 640px) {
   .prosv-faq-teaser {
     flex-direction: column;
