@@ -17,7 +17,7 @@ export function initThemeManager() {
     document.documentElement.setAttribute('data-theme', themeName);
     try {
       localStorage.setItem('theme-preference', themeName);
-    } catch (err) { }
+    } catch (err) {}
   });
 
   // Слушаем изменение системной темы (Windows/macOS/PowerToys)

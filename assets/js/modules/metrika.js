@@ -1,6 +1,6 @@
 export function initMetrika() {
-  (function (m, e, t, r, i, k, a) {
-    m[i] = m[i] || function () {
+  (function(m, e, t, r, i, k, a) {
+    m[i] = m[i] || function() {
       (m[i].a = m[i].a || []).push(arguments)
     };
     m[i].l = 1 * new Date();

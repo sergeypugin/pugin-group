@@ -1,4 +1,6 @@
-import { companyData } from './company-data.js';
+import {
+  companyData
+} from './company-data.js';
 
 export function renderCompanyCard() {
   const container = document.getElementById('company-card-body');
@@ -13,9 +15,9 @@ export function renderCompanyCard() {
     `;
 
     section.fields.forEach((field) => {
-      const valueContent = field.isLink
-        ? `<a href="${field.href}" target="_blank" class="text-link">${field.value}</a>`
-        : field.value;
+      const valueContent = field.isLink ?
+        `<a href="${field.href}" target="_blank" class="text-link">${field.value}</a>` :
+        field.value;
 
       html += `
         <div class="info-group">
@@ -86,16 +88,38 @@ export async function exportToDocx() {
   try {
     // Подгружаем библиотеку docx динамически прямо в браузере (только при клике!)
     const docxModule = await import('https://esm.sh/docx@9.0.3');
-    const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, BorderStyle, HeadingLevel } = docxModule;
+    const {
+      Document,
+      Packer,
+      Paragraph,
+      TextRun,
+      Table,
+      TableRow,
+      TableCell,
+      WidthType,
+      BorderStyle,
+      HeadingLevel
+    } = docxModule;
 
-    const thinBorder = { style: BorderStyle.SINGLE, size: 4, color: 'CBD5E1' };
-    const borders = { top: thinBorder, bottom: thinBorder, left: BorderStyle.NONE, right: BorderStyle.NONE };
+    const thinBorder = {
+      style: BorderStyle.SINGLE,
+      size: 4,
+      color: 'CBD5E1'
+    };
+    const borders = {
+      top: thinBorder,
+      bottom: thinBorder,
+      left: BorderStyle.NONE,
+      right: BorderStyle.NONE
+    };
 
     const docChildren = [
       new Paragraph({
         text: 'КАРТОЧКА ОРГАНИЗАЦИИ',
         heading: HeadingLevel.TITLE,
-        spacing: { after: 300 }
+        spacing: {
+          after: 300
+        }
       })
     ];
 
@@ -111,7 +135,10 @@ export async function exportToDocx() {
               size: 20
             })
           ],
-          spacing: { before: 240, after: 120 }
+          spacing: {
+            before: 240,
+            after: 120
+          }
         })
       );
 
@@ -119,19 +146,35 @@ export async function exportToDocx() {
         return new TableRow({
           children: [
             new TableCell({
-              width: { size: 3200, type: WidthType.DXA },
+              width: {
+                size: 3200,
+                type: WidthType.DXA
+              },
               children: [
                 new Paragraph({
-                  children: [new TextRun({ text: field.label + ':', bold: true, color: '64748B', size: 18 })]
+                  children: [new TextRun({
+                    text: field.label + ':',
+                    bold: true,
+                    color: '64748B',
+                    size: 18
+                  })]
                 })
               ],
               borders
             }),
             new TableCell({
-              width: { size: 6000, type: WidthType.DXA },
+              width: {
+                size: 6000,
+                type: WidthType.DXA
+              },
               children: [
                 new Paragraph({
-                  children: [new TextRun({ text: field.value, bold: true, color: '0F172A', size: 18 })]
+                  children: [new TextRun({
+                    text: field.value,
+                    bold: true,
+                    color: '0F172A',
+                    size: 18
+                  })]
                 })
               ],
               borders
@@ -140,7 +183,13 @@ export async function exportToDocx() {
         });
       });
 
-      docChildren.push(new Table({ width: { size: 9200, type: WidthType.DXA }, rows }));
+      docChildren.push(new Table({
+        width: {
+          size: 9200,
+          type: WidthType.DXA
+        },
+        rows
+      }));
     });
 
     // Раздел ОКВЭД
@@ -154,7 +203,10 @@ export async function exportToDocx() {
             size: 20
           })
         ],
-        spacing: { before: 300, after: 120 }
+        spacing: {
+          before: 300,
+          after: 120
+        }
       })
     );
 
@@ -162,19 +214,34 @@ export async function exportToDocx() {
       return new TableRow({
         children: [
           new TableCell({
-            width: { size: 1800, type: WidthType.DXA },
+            width: {
+              size: 1800,
+              type: WidthType.DXA
+            },
             children: [
               new Paragraph({
-                children: [new TextRun({ text: item.code, bold: true, color: '0F172A', size: 18 })]
+                children: [new TextRun({
+                  text: item.code,
+                  bold: true,
+                  color: '0F172A',
+                  size: 18
+                })]
               })
             ],
             borders
           }),
           new TableCell({
-            width: { size: 7400, type: WidthType.DXA },
+            width: {
+              size: 7400,
+              type: WidthType.DXA
+            },
             children: [
               new Paragraph({
-                children: [new TextRun({ text: item.name, color: '334155', size: 18 })]
+                children: [new TextRun({
+                  text: item.name,
+                  color: '334155',
+                  size: 18
+                })]
               })
             ],
             borders
@@ -183,19 +250,28 @@ export async function exportToDocx() {
       });
     });
 
-    docChildren.push(new Table({ width: { size: 9200, type: WidthType.DXA }, rows: okvedRows }));
+    docChildren.push(new Table({
+      width: {
+        size: 9200,
+        type: WidthType.DXA
+      },
+      rows: okvedRows
+    }));
 
     const doc = new Document({
-      sections: [
-        {
-          properties: {
-            page: {
-              margin: { top: 1000, right: 1000, bottom: 1000, left: 1000 }
+      sections: [{
+        properties: {
+          page: {
+            margin: {
+              top: 1000,
+              right: 1000,
+              bottom: 1000,
+              left: 1000
             }
-          },
-          children: docChildren
-        }
-      ]
+          }
+        },
+        children: docChildren
+      }]
     });
 
     // Формируем настоящий бинарный .docx и скачиваем

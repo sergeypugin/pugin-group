@@ -1,4 +1,4 @@
-(function () {
+(function() {
   try {
     const savedTheme = localStorage.getItem('theme-preference');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
