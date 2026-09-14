@@ -187,7 +187,6 @@
 /* Контейнер действий и кнопок в FAQ */
 .prosv-faq-footer {
   margin-top: 48px;
-  border-top: 1px solid var(--border-color);
   padding-top: 32px;
 }
 
