@@ -150,10 +150,127 @@
   border-color: var(--color-prosv);
 }
 
+/* Стилизация таблиц в FAQ */
+.faq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid var(--border-color);
+}
+
+.faq-table th,
+.faq-table td {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  vertical-align: top;
+  text-align: left;
+}
+
+.faq-table th {
+  background-color: rgba(var(--color-contrast-rgb), 0.03);
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.faq-table td strong {
+  color: var(--text-main);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+/* Контейнер действий и кнопок в FAQ */
+.prosv-faq-footer {
+  margin-top: 48px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 32px;
+}
+
+.prosv-faq-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 32px;
+}
+
+/* Сетка для скачивания PDF */
+.prosv-download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.download-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(var(--color-contrast-rgb), 0.02);
+}
+
+.download-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-indigo);
+  box-shadow: 0 8px 24px rgba(var(--color-contrast-rgb), 0.06);
+}
+
+.download-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-prosv);
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 11px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.download-card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.download-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.download-card__size {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Скрытие информации о других направлениях в футере на страницах Просвещения */
+.footer-text .footer-extra {
+  display: none;
+}
+
 @media (max-width: 640px) {
-  .prosv-pdf-bar {
+  .prosv-faq-teaser {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 24px;
+  }
+
+  .prosv-faq-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
