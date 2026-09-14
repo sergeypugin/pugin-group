@@ -1,6 +1,6 @@
 // 0. Инициализация Яндекс.Метрики
-(function(m, e, t, r, i, k, a) {
-  m[i] = m[i] || function() {
+(function (m, e, t, r, i, k, a) {
+  m[i] = m[i] || function () {
     (m[i].a = m[i].a || []).push(arguments)
   };
   m[i].l = 1 * new Date();
@@ -29,22 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Автоматическое управление переключателем темы
   const initThemeManager = () => {
     const checkbox = document.getElementById('theme-toggle-checkbox');
-    const savedTheme = localStorage.getItem('theme-preference');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (!checkbox) return;
 
-    // Определяем тему: из памяти или из настроек ОС
-    let isDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+    // Тема уже установлена в theme-init.js, синхронизируем только чекбокс
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const isDark = currentTheme === 'dark';
 
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    checkbox.checked = !isDark;
 
-    if (checkbox) {
-      checkbox.checked = !isDark;
-      checkbox.addEventListener('change', (e) => {
-        const newDark = !e.target.checked;
-        document.documentElement.setAttribute('data-theme', newDark ? 'dark' : 'light');
-        localStorage.setItem('theme-preference', newDark ? 'dark' : 'light');
-      });
-    }
+    checkbox.addEventListener('change', (e) => {
+      const newDark = !e.target.checked;
+      const themeName = newDark ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', themeName);
+      try {
+        localStorage.setItem('theme-preference', themeName);
+      } catch (err) { }
+    });
   };
 
   // 2. Автоматическое добавление тегов и загрузка компонентов
